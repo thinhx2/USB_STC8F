@@ -5,9 +5,9 @@
 #include "usb_def.h"
 
 static enum usb_settings{
-  USB_VENDOR_ID = 0x4186,
-  USB_DEVICE_ID = 0x0001,
-  USB_DEVICE_VERSION = 0x6655,
+  USB_VENDOR_ID = 0x1234,
+  USB_DEVICE_ID = 0x5678,
+  USB_DEVICE_VERSION = 0x9012,
 };
 
 static const unsigned char code usb_device_descriptor[] = {
