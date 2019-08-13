@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/13/2019 14:18:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\usb_exit_process.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\A51.EXE USB\Src\usb_exit_process.asm SET(SMALL) DEBUG PRINT(.\
+                      Listings\usb_exit_process.lst) OBJECT(.\Objects\usb_exit_process.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     NAME    USB_EXIT_PROCESS
+                       9             
+                      10     ?PR?usb_exit_process?USB_EXIT_PROCESS SEGMENT CODE
+                      11             EXTRN   DATA (UEPF)
+                      12             PUBLIC usb_exit_process
+----                  13             RSEG  ?PR?usb_exit_process?USB_EXIT_PROCESS
+                      14                     
+0000                  15     usb_exit_process:
+                      16             ;POP ACC
+                      17             ;POP ACC
+0000 D007             18             POP 0x07
+0002 D006             19             POP 0x06
+0004 D005             20             POP 0x05
+0006 D004             21             POP 0x04
+0008 D003             22             POP 0x03
+000A D002             23             POP 0x02
+000C D001             24             POP 0x01
+000E D000             25             POP 0x00
+0010 D0D0             26             POP PSW
+0012 D082             27             POP DPL
+0014 D083             28             POP DPH
+0016 D0F0             29             POP B
+0018 D0E0             30             POP ACC
+001A 750001   F       31             MOV UEPF, #1
+001D 22               32             RET
+                      33                     
+                      34             END
+A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/13/2019 14:18:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                T Y P E  V A L U E   ATTRIBUTES
+
+?PR?USB_EXIT_PROCESS?USB_EXIT_PROCESS  C SEG    001EH       REL=UNIT
+ACC . . . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+B . . . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+DPH . . . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+PSW . . . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+UEPF. . . . . . . . . . . . . . . . .  D ADDR   -----       EXT
+USB_EXIT_PROCESS. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?USB_EXIT_PROCESS?USB_EXIT_PROCESS
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

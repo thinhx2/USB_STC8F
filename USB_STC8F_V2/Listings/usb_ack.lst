@@ -1,0 +1,119 @@
+A51 MACRO ASSEMBLER  USB_ACK                                                              08/13/2019 14:18:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\usb_ack.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\A51.EXE USB\Src\usb_ack.asm SET(SMALL) DEBUG PRINT(.\Listings\
+                      usb_ack.lst) OBJECT(.\Objects\usb_ack.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9             
+                      10     NAME    USB_SEND_ACK
+                      11             
+                      12     ?PR?usb_send_ack?USB_SEND_ACK SEGMENT CODE
+                      13             PUBLIC usb_send_ack
+----                  14             RSEG  ?PR?usb_send_ack?USB_SEND_ACK
+0000                  15     usb_send_ack:
+0000 43B203           16             ORL 0xB2, #0x03         ; 1
+0003 53B1FC           17             ANL 0xB1, #0xFC         ; 1
+                      18             
+                      19             
+                      20             
+                      21     
+0006 63B003           22             XRL 0xB0, #0x03         ; 1
+0009 120000   F       23             LCALL delay                     ; 19
+                      24     
+000C 63B003           25             XRL 0xB0, #0x03         ; 1
+000F 120000   F       26             LCALL delay                     ; 19
+                      27     
+0012 63B003           28             XRL 0xB0, #0x03         ; 1
+0015 120000   F       29             LCALL delay                     ; 19
+                      30     
+0018 63B003           31             XRL 0xB0, #0x03         ; 1
+001B 120000   F       32             LCALL delay                     ; 19
+                      33     
+001E 63B003           34             XRL 0xB0, #0x03         ; 1
+0021 120000   F       35             LCALL delay                     ; 19
+                      36     
+0024 63B003           37             XRL 0xB0, #0x03         ; 1
+0027 120000   F       38             LCALL delay                     ; 19
+                      39     
+002A 63B003           40             XRL 0xB0, #0x03         ; 1
+002D 120000   F       41             LCALL delay                     ; 19
+0030 120000   F       42             LCALL delay                     ; 19
+0033 00               43             NOP
+                      44     
+0034 63B003           45             XRL 0xB0, #0x03         ; 1
+0037 120000   F       46             LCALL delay                     ; 19
+003A 120000   F       47             LCALL delay                     ; 19
+003D 00               48             NOP
+                      49     
+003E 63B003           50             XRL 0xB0, #0x03         ; 1
+0041 120000   F       51             LCALL delay                     ; 19
+                      52     
+0044 63B003           53             XRL 0xB0, #0x03         ; 1
+0047 120000   F       54             LCALL delay                     ; 19
+004A 120000   F       55             LCALL delay                     ; 19
+004D 00               56             NOP
+                      57     
+A51 MACRO ASSEMBLER  USB_ACK                                                              08/13/2019 14:18:03 PAGE     2
+
+004E 63B003           58             XRL 0xB0, #0x03         ; 1
+0051 120000   F       59             LCALL delay                     ; 19
+0054 120000   F       60             LCALL delay                     ; 19
+0057 120000   F       61             LCALL delay                     ; 19
+005A 00               62             NOP
+005B 00               63             NOP
+                      64     
+005C 53B0FC           65             ANL 0xB0, #0xFC         ; 1
+005F 120000   F       66             LCALL delay                     ; 19
+0062 120000   F       67             LCALL delay                     ; 19
+0065 00               68             NOP
+                      69       
+0066 43B001           70             ORL 0xB0, #0x01         ; 1
+0069 53B2FC           71             ANL 0xB2, #0xFC         ; 1
+006C 43B103           72             ORL 0xB1, #0x03         ; 1
+006F 22               73             RET
+                      74       
+0070                  75     delay:                                  ; 19
+0070 00               76             NOP
+0071 00               77             NOP
+0072 00               78             NOP
+0073 00               79             NOP
+0074 00               80             NOP
+0075 00               81             NOP
+0076 00               82             NOP
+0077 00               83             NOP
+0078 00               84             NOP
+0079 00               85             NOP
+007A 00               86             NOP
+007B 22               87             RET
+                      88             
+                      89             END
+                                             
+A51 MACRO ASSEMBLER  USB_ACK                                                              08/13/2019 14:18:03 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                        T Y P E  V A L U E   ATTRIBUTES
+
+?PR?USB_SEND_ACK?USB_SEND_ACK  C SEG    007CH       REL=UNIT
+DELAY . . . . . . . . . . . .  C ADDR   0070H   R   SEG=?PR?USB_SEND_ACK?USB_SEND_ACK
+USB_SEND_ACK. . . . . . . . .  C ADDR   0000H   R   SEG=?PR?USB_SEND_ACK?USB_SEND_ACK
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

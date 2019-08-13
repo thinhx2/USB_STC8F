@@ -1,0 +1,59 @@
+C51 COMPILER V9.59.0.0   USB_CONFIG                                                        08/13/2019 14:18:03 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USB_CONFIG
+OBJECT MODULE PLACED IN .\Objects\usb_config.obj
+COMPILER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\C51.EXE USB\Src\usb_config.c OMF2 OPTIMIZE(8,SPEED) BROWSE INCD
+                    -IR(.\User\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\usb_config.lst) TABS(2) OBJECT(.\Objects\usb_config.obj)
+
+line level    source
+
+   1          
+   2          // Written By : Thanh Tung
+   3          // E-Mail     : electricthanhtung@gmail.com
+   4          // Facebook   : https://www.facebook.com/electricthanhtung
+   5          
+   6          #include "main.h"
+   7          
+   8          static void GPIO_Init(){
+   9   1        P3 = (P3 & 0xFC) | 0x01;
+  10   1        GPIO_P3Mode(PIN0 | PIN1 | PIN2, INPUT);
+  11   1      }
+  12          
+  13          static void EXTI_Init(){
+  14   1      //  INTCLKO |= EX4;
+  15   1      //  IE |= 0x80;
+  16   1        IP |= 0x01;
+  17   1        IPH |= 0x01;
+  18   1        IT0 = 1;
+  19   1        IE |=0x81;
+  20   1      }
+  21          
+  22          void USB_Disconnect(){
+  23   1        EA = 0;
+  24   1        P3 &= 0xFC;
+  25   1        GPIO_P3Mode(PIN0 | PIN1, OUTPUT);
+  26   1      }
+  27          
+  28          void USB_Init(){
+  29   1        GPIO_Init();
+  30   1        EXTI_Init();
+  31   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     45    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

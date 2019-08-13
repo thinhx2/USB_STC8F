@@ -1,0 +1,349 @@
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\usb_tx.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\A51.EXE USB\Src\usb_tx.asm SET(SMALL) DEBUG PRINT(.\Listings\u
+                      sb_tx.lst) OBJECT(.\Objects\usb_tx.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     NAME    USB_TX
+                       9             
+                      10     ?PR?usb_tx?USB_TX SEGMENT CODE
+                      11             EXTRN   DATA (usb_tx_count)
+                      12             EXTRN   XDATA (usb_tx_buffer)
+                      13             PUBLIC usb_tx
+----                  14             RSEG  ?PR?usb_tx?USB_TX
+0000                  15     usb_tx:
+0000 7806             16             MOV R0, #0x06
+0002 900000   F       17             MOV DPTR, #usb_tx_buffer
+0005 A900     F       18             MOV R1, usb_tx_count
+0007 E0               19             MOVX A, @DPTR                 ; 2
+                      20             
+0008                  21     bit0:
+0008 13               22             RRC A                         ; 1
+0009 400D             23             JC bit0Idle                   ; 1/3
+000B 63B003           24             XRL 0xB0, #0x03               ; 1
+000E 7806             25             MOV R0, #0x06                 ; 1
+0010 A3               26             INC DPTR                                          ; 1
+0011 120000   F       27             LCALL delay                                       ; 8
+0014 00               28             NOP
+0015 00               29             NOP
+0016 8019             30             SJMP bit1                                         ; 3
+0018                  31     bit0Idle:
+0018 120000   F       32             LCALL delay                   ; 8
+001B A3               33             INC DPTR                                          ; 1
+001C 00               34             NOP
+001D 00               35             NOP
+001E D811             36             DJNZ R0, bit1                     ; 2/3
+0020 00               37             NOP
+0021 00               38             NOP
+0022 00               39             NOP
+0023 63B003           40             XRL 0xB0, #0x03               ; 1
+0026 7806             41             MOV R0, #0x06                 ; 1
+0028 120000   F       42             LCALL delay                                       ; 8
+002B 00               43             NOP
+002C 00               44             NOP
+002D 00               45             NOP
+002E 00               46             NOP
+002F 00               47             NOP
+0030 00               48             NOP
+0031                  49     bit1:
+0031 13               50             RRC A                         ; 1
+0032 400D             51             JC bit1Idle                   ; 1/3
+0034 63B003           52             XRL 0xB0, #0x03               ; 1
+0037 7806             53             MOV R0, #0x06                 ; 1
+0039 120000   F       54             LCALL delay                                       ; 8
+003C 00               55             NOP
+003D 00               56             NOP
+003E 00               57             NOP
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     2
+
+003F 8019             58             SJMP bit2                                         ; 3
+0041                  59     bit1Idle:
+0041 120000   F       60             LCALL delay                   ; 8
+0044 00               61             NOP
+0045 00               62             NOP
+0046 00               63             NOP
+0047 D811             64             DJNZ R0, bit2                     ; 2/3
+0049 00               65             NOP
+004A 00               66             NOP
+004B 00               67             NOP
+004C 63B003           68             XRL 0xB0, #0x03               ; 1
+004F 7806             69             MOV R0, #0x06                 ; 1
+0051 120000   F       70             LCALL delay                                       ; 8
+0054 00               71             NOP
+0055 00               72             NOP
+0056 00               73             NOP
+0057 00               74             NOP
+0058 00               75             NOP
+0059 00               76             NOP
+005A                  77     bit2:
+005A 13               78             RRC A                         ; 1
+005B 400D             79             JC bit2Idle                   ; 1/3
+005D 63B003           80             XRL 0xB0, #0x03               ; 1
+0060 7806             81             MOV R0, #0x06                 ; 1
+0062 120000   F       82             LCALL delay                                       ; 8
+0065 00               83             NOP
+0066 00               84             NOP
+0067 00               85             NOP
+0068 8019             86             SJMP bit3                                         ; 3
+006A                  87     bit2Idle:
+006A 120000   F       88             LCALL delay                   ; 8
+006D 00               89             NOP
+006E 00               90             NOP
+006F 00               91             NOP
+0070 D811             92             DJNZ R0, bit3                     ; 2/3
+0072 00               93             NOP
+0073 00               94             NOP
+0074 00               95             NOP
+0075 63B003           96             XRL 0xB0, #0x03               ; 1
+0078 7806             97             MOV R0, #0x06                 ; 1
+007A 120000   F       98             LCALL delay                                       ; 8
+007D 00               99             NOP
+007E 00              100             NOP
+007F 00              101             NOP
+0080 00              102             NOP
+0081 00              103             NOP
+0082 00              104             NOP
+0083                 105     bit3:
+0083 13              106             RRC A                         ; 1
+0084 400D            107             JC bit3Idle                   ; 1/3
+0086 63B003          108             XRL 0xB0, #0x03               ; 1
+0089 7806            109             MOV R0, #0x06                 ; 1
+008B 120000   F      110             LCALL delay                                       ; 8
+008E 00              111             NOP
+008F 00              112             NOP
+0090 00              113             NOP
+0091 8019            114             SJMP bit4                                         ; 3
+0093                 115     bit3Idle:
+0093 120000   F      116             LCALL delay                   ; 8
+0096 00              117             NOP
+0097 00              118             NOP
+0098 00              119             NOP
+0099 D811            120             DJNZ R0, bit4                     ; 2/3
+009B 00              121             NOP
+009C 00              122             NOP
+009D 00              123             NOP
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     3
+
+009E 63B003          124             XRL 0xB0, #0x03               ; 1
+00A1 7806            125             MOV R0, #0x06                 ; 1
+00A3 120000   F      126             LCALL delay                                       ; 8
+00A6 00              127             NOP
+00A7 00              128             NOP
+00A8 00              129             NOP
+00A9 00              130             NOP
+00AA 00              131             NOP
+00AB 00              132             NOP
+00AC                 133     bit4:
+00AC 13              134             RRC A                         ; 1
+00AD 400D            135             JC bit4Idle                   ; 1/3
+00AF 63B003          136             XRL 0xB0, #0x03               ; 1
+00B2 7806            137             MOV R0, #0x06                 ; 1
+00B4 120000   F      138             LCALL delay                                       ; 8
+00B7 00              139             NOP
+00B8 00              140             NOP
+00B9 00              141             NOP
+00BA 8019            142             SJMP bit5                                         ; 3
+00BC                 143     bit4Idle:
+00BC 120000   F      144             LCALL delay                   ; 8
+00BF 00              145             NOP
+00C0 00              146             NOP
+00C1 00              147             NOP
+00C2 D811            148             DJNZ R0, bit5                     ; 2/3
+00C4 00              149             NOP
+00C5 00              150             NOP
+00C6 00              151             NOP
+00C7 63B003          152             XRL 0xB0, #0x03               ; 1
+00CA 7806            153             MOV R0, #0x06                 ; 1
+00CC 120000   F      154             LCALL delay                                       ; 8
+00CF 00              155             NOP
+00D0 00              156             NOP
+00D1 00              157             NOP
+00D2 00              158             NOP
+00D3 00              159             NOP
+00D4 00              160             NOP
+00D5                 161     bit5:
+00D5 13              162             RRC A                         ; 1
+00D6 400D            163             JC bit5Idle                   ; 1/3
+00D8 63B003          164             XRL 0xB0, #0x03               ; 1
+00DB 7806            165             MOV R0, #0x06                 ; 1
+00DD 120000   F      166             LCALL delay                                       ; 8
+00E0 00              167             NOP
+00E1 00              168             NOP
+00E2 00              169             NOP
+00E3 8019            170             SJMP bit6                                         ; 3
+00E5                 171     bit5Idle:
+00E5 120000   F      172             LCALL delay                   ; 8
+00E8 00              173             NOP
+00E9 00              174             NOP
+00EA 00              175             NOP
+00EB D811            176             DJNZ R0, bit6                     ; 2/3
+00ED 00              177             NOP
+00EE 00              178             NOP
+00EF 00              179             NOP
+00F0 63B003          180             XRL 0xB0, #0x03               ; 1
+00F3 7806            181             MOV R0, #0x06                 ; 1
+00F5 120000   F      182             LCALL delay                                       ; 8
+00F8 00              183             NOP
+00F9 00              184             NOP
+00FA 00              185             NOP
+00FB 00              186             NOP
+00FC 00              187             NOP
+00FD 00              188             NOP
+00FE                 189     bit6:
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     4
+
+00FE 13              190             RRC A                         ; 1
+00FF 400D            191             JC bit6Idle                   ; 1/3
+0101 63B003          192             XRL 0xB0, #0x03               ; 1
+0104 7806            193             MOV R0, #0x06                 ; 1
+0106 120000   F      194             LCALL delay                                       ; 8
+0109 00              195             NOP
+010A 00              196             NOP
+010B 00              197             NOP
+010C 8019            198             SJMP bit7                                         ; 3
+010E                 199     bit6Idle:
+010E 120000   F      200             LCALL delay                   ; 8
+0111 00              201             NOP
+0112 00              202             NOP
+0113 00              203             NOP
+0114 D811            204             DJNZ R0, bit7                     ; 2/3
+0116 00              205             NOP
+0117 00              206             NOP
+0118 00              207             NOP
+0119 63B003          208             XRL 0xB0, #0x03               ; 1
+011C 7806            209             MOV R0, #0x06                 ; 1
+011E 120000   F      210             LCALL delay                                       ; 8
+0121 00              211             NOP
+0122 00              212             NOP
+0123 00              213             NOP
+0124 00              214             NOP
+0125 00              215             NOP
+0126 00              216             NOP
+0127                 217     bit7:
+0127 13              218             RRC A                         ; 1
+0128 4011            219             JC bit7Idle                   ; 1/3
+012A 63B003          220             XRL 0xB0, #0x03               ; 1
+012D 7806            221             MOV R0, #0x06                 ; 1
+012F E0              222             MOVX A, @DPTR                             ; 2
+0130 00              223             NOP
+0131 00              224             NOP
+0132 00              225             NOP
+0133 00              226             NOP
+0134 00              227             NOP
+0135 00              228             NOP
+0136 D935            229             DJNZ R1, goto_bit0                        ; 2/3
+0138 00              230             NOP
+0139 8038            231             SJMP END_TX
+013B                 232     bit7Idle:
+013B D916            233             DJNZ R1, nextbyte                         ; 2/3
+013D 120000   F      234             LCALL delay                                       ; 8
+0140 00              235             NOP
+0141 D830            236             DJNZ R0, END_TX               ; 2/3
+0143 00              237             NOP
+0144 00              238             NOP
+0145 00              239             NOP
+0146 63B003          240             XRL 0xB0, #0x03               ; 1
+0149 7806            241             MOV R0, #0x06                 ; 1
+014B 120000   F      242             LCALL delay                                       ; 8
+014E 00              243             NOP
+014F 00              244             NOP
+0150 00              245             NOP
+0151 8020            246             SJMP END_TX                                       ; 3
+0153                 247     nextbyte:
+0153 E0              248             MOVX A, @DPTR                             ; 2
+0154 00              249             NOP
+0155 00              250             NOP
+0156 00              251             NOP
+0157 D814            252             DJNZ R0, goto_bit0            ; 2/3
+0159 00              253             NOP
+015A 00              254             NOP
+015B 00              255             NOP
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     5
+
+015C 00              256             NOP
+015D 00              257             NOP
+015E 00              258             NOP
+015F 00              259             NOP
+0160 00              260             NOP
+0161 00              261             NOP
+0162 63B003          262             XRL 0xB0, #0x03               ; 1
+0165 7806            263             MOV R0, #0x06                 ; 1
+0167 120000   F      264             LCALL delay                                       ; 8
+016A 020000   F      265             LJMP bit0                                         ; 3
+016D                 266     goto_bit0:
+016D 020000   F      267             LJMP bit0                                         ; 3
+0170                 268     delay:
+0170 00              269             NOP
+0171 00              270             NOP
+0172 22              271             RET
+0173                 272     END_TX:
+0173 00              273             NOP
+0174 00              274             NOP
+0175 53B0FC          275             ANL 0xB0, #0xFC               ; 1
+0178 120000   F      276             LCALL delay                                       ; 8
+017B 120000   F      277             LCALL delay                                       ; 8
+017E 120000   F      278             LCALL delay                                       ; 8
+0181 00              279             NOP
+0182 00              280             NOP
+0183 00              281             NOP
+0184 00              282             NOP
+0185 00              283             NOP
+0186 00              284             NOP
+0187 00              285             NOP
+0188 00              286             NOP
+0189 00              287             NOP
+018A 00              288             NOP
+018B 00              289             NOP
+018C 43B001          290             ORL 0xB0, #0x01               ; 1
+018F 22              291             RET
+                     292     
+                     293             END
+A51 MACRO ASSEMBLER  USB_TX                                                               08/13/2019 14:18:03 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?USB_TX?USB_TX.  C SEG    0190H       REL=UNIT
+BIT0 . . . . . . .  C ADDR   0008H   R   SEG=?PR?USB_TX?USB_TX
+BIT0IDLE . . . . .  C ADDR   0018H   R   SEG=?PR?USB_TX?USB_TX
+BIT1 . . . . . . .  C ADDR   0031H   R   SEG=?PR?USB_TX?USB_TX
+BIT1IDLE . . . . .  C ADDR   0041H   R   SEG=?PR?USB_TX?USB_TX
+BIT2 . . . . . . .  C ADDR   005AH   R   SEG=?PR?USB_TX?USB_TX
+BIT2IDLE . . . . .  C ADDR   006AH   R   SEG=?PR?USB_TX?USB_TX
+BIT3 . . . . . . .  C ADDR   0083H   R   SEG=?PR?USB_TX?USB_TX
+BIT3IDLE . . . . .  C ADDR   0093H   R   SEG=?PR?USB_TX?USB_TX
+BIT4 . . . . . . .  C ADDR   00ACH   R   SEG=?PR?USB_TX?USB_TX
+BIT4IDLE . . . . .  C ADDR   00BCH   R   SEG=?PR?USB_TX?USB_TX
+BIT5 . . . . . . .  C ADDR   00D5H   R   SEG=?PR?USB_TX?USB_TX
+BIT5IDLE . . . . .  C ADDR   00E5H   R   SEG=?PR?USB_TX?USB_TX
+BIT6 . . . . . . .  C ADDR   00FEH   R   SEG=?PR?USB_TX?USB_TX
+BIT6IDLE . . . . .  C ADDR   010EH   R   SEG=?PR?USB_TX?USB_TX
+BIT7 . . . . . . .  C ADDR   0127H   R   SEG=?PR?USB_TX?USB_TX
+BIT7IDLE . . . . .  C ADDR   013BH   R   SEG=?PR?USB_TX?USB_TX
+DELAY. . . . . . .  C ADDR   0170H   R   SEG=?PR?USB_TX?USB_TX
+END_TX . . . . . .  C ADDR   0173H   R   SEG=?PR?USB_TX?USB_TX
+GOTO_BIT0. . . . .  C ADDR   016DH   R   SEG=?PR?USB_TX?USB_TX
+NEXTBYTE . . . . .  C ADDR   0153H   R   SEG=?PR?USB_TX?USB_TX
+USB_TX . . . . . .  C ADDR   0000H   R   SEG=?PR?USB_TX?USB_TX
+USB_TX_BUFFER. . .  X ADDR   -----       EXT
+USB_TX_COUNT . . .  D ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

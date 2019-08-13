@@ -1,0 +1,73 @@
+C51 COMPILER V9.59.0.0   STC8F_GPIO                                                        08/13/2019 14:18:02 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE STC8F_GPIO
+OBJECT MODULE PLACED IN .\Objects\stc8f_gpio.obj
+COMPILER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\C51.EXE Drivers\Src\stc8f_gpio.c OMF2 OPTIMIZE(8,SPEED) BROWSE 
+                    -INCDIR(.\User\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\stc8f_gpio.lst) TABS(2) OBJECT(.\Objects\stc8f_gpio.ob
+                    -j)
+
+line level    source
+
+   1          
+   2          // Written By : Thanh Tung
+   3          // E-Mail     : electricthanhtung@gmail.com
+   4          // Facebook   : https://www.facebook.com/electricthanhtung
+   5          
+   6          #include "main.h"
+   7          
+   8          void GPIO_P1Mode(unsigned char PIN, GPIOMode mode){
+   9   1        if(mode & 0x01)
+  10   1          P1M0 |= PIN;
+  11   1        else
+  12   1          P1M0 &= ~PIN;
+  13   1        
+  14   1        if(mode & 0x02)
+  15   1          P1M1 |= PIN;
+  16   1        else
+  17   1          P1M1 &= ~PIN;
+  18   1      }
+  19          
+  20          void GPIO_P3Mode(unsigned char PIN, GPIOMode mode){
+  21   1        if(mode & 0x01)
+  22   1          P3M0 |= PIN;
+  23   1        else
+  24   1          P3M0 &= ~PIN;
+  25   1        
+  26   1        if(mode & 0x02)
+  27   1          P3M1 |= PIN;
+  28   1        else
+  29   1          P3M1 &= ~PIN;
+  30   1      }
+  31          
+  32          void GPIO_P5Mode(unsigned char PIN, GPIOMode mode){
+  33   1        if(mode & 0x01)
+  34   1          P5M0 |= PIN;
+  35   1        else
+  36   1          P5M0 &= ~PIN;
+  37   1        
+  38   1        if(mode & 0x02)
+  39   1          P5M1 |= PIN;
+  40   1        else
+  41   1          P5M1 &= ~PIN;
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     78    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+C51 COMPILER V9.59.0.0   STC8F_GPIO                                                        08/13/2019 14:18:02 PAGE 2   
+
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

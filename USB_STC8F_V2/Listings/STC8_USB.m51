@@ -1,0 +1,187 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/19/2019  15:35:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\PROGRAM FILES\KEIL C\C51\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\stc8f_gpio.obj TO .\Objects\STC8_USB PRINT (.
+>> \Listings\STC8_USB.m51) RAMSIZE (256) CODE (0X0000-0X1FFF) XDATA (0X0000-0X07FF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\stc8f_gpio.obj (STC8F_GPIO)
+  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\STC8_USB (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     001AH     UNIT         ?PR?_GPIO_P1MODE?STC8F_GPIO
+            CODE    001DH     001AH     UNIT         ?PR?_GPIO_P3MODE?STC8F_GPIO
+            CODE    0037H     001AH     UNIT         ?PR?_GPIO_P5MODE?STC8F_GPIO
+            CODE    0051H     000CH     UNIT         ?C_C51STARTUP
+            CODE    005DH     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    0065H     0001H     UNIT         ?PR?GPIO_INIT?MAIN
+            CODE    0066H     0001H     UNIT         ?PR?EXTI_INIT?MAIN
+            CODE    0067H     0001H     UNIT         ?PR?INT3_ISR?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\STC8_USB (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?GPIO_INIT?MAIN
+  +--> ?PR?EXTI_INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/19/2019  15:35:25  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:005DH         PUBLIC        main
+  C:0065H         SYMBOL        GPIO_Init
+  C:0066H         SYMBOL        EXTI_Init
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0067H         PUBLIC        INT3_ISR
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          GPIO_INIT
+  C:0065H         LINE#         3
+  C:0065H         LINE#         5
+  -------         ENDPROC       GPIO_INIT
+  -------         PROC          EXTI_INIT
+  C:0066H         LINE#         7
+  C:0066H         LINE#         9
+  -------         ENDPROC       EXTI_INIT
+  -------         PROC          INT3_ISR
+  C:0067H         LINE#         11
+  C:0067H         LINE#         13
+  -------         ENDPROC       INT3_ISR
+  -------         PROC          MAIN
+  C:005DH         LINE#         15
+  C:005DH         LINE#         16
+  C:0060H         LINE#         17
+  C:0063H         LINE#         18
+  C:0063H         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        STC8F_GPIO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0092H         PUBLIC        P1M0
+  D:0091H         PUBLIC        P1M1
+  D:0080H         PUBLIC        P0
+  D:00B2H         PUBLIC        P3M0
+  D:0090H         PUBLIC        P1
+  D:00B1H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00CAH         PUBLIC        P5M0
+  D:00B0H         PUBLIC        P3
+  D:00C9H         PUBLIC        P5M1
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/19/2019  15:35:25  PAGE 3
+
+
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        _GPIO_P1Mode
+  C:001DH         PUBLIC        _GPIO_P3Mode
+  C:0037H         PUBLIC        _GPIO_P5Mode
+  D:00D8H         PUBLIC        CCON
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _GPIO_P1MODE
+  D:0007H         SYMBOL        PIN
+  D:0005H         SYMBOL        mode
+  C:0003H         LINE#         9
+  C:0003H         LINE#         10
+  C:0007H         LINE#         11
+  C:000CH         LINE#         13
+  C:0010H         LINE#         15
+  C:0014H         LINE#         16
+  C:0018H         LINE#         18
+  C:001CH         LINE#         19
+  -------         ENDPROC       _GPIO_P1MODE
+  -------         PROC          _GPIO_P3MODE
+  D:0007H         SYMBOL        PIN
+  D:0005H         SYMBOL        mode
+  C:001DH         LINE#         21
+  C:001DH         LINE#         22
+  C:0021H         LINE#         23
+  C:0026H         LINE#         25
+  C:002AH         LINE#         27
+  C:002EH         LINE#         28
+  C:0032H         LINE#         30
+  C:0036H         LINE#         31
+  -------         ENDPROC       _GPIO_P3MODE
+  -------         PROC          _GPIO_P5MODE
+  D:0007H         SYMBOL        PIN
+  D:0005H         SYMBOL        mode
+  C:0037H         LINE#         33
+  C:0037H         LINE#         34
+  C:003BH         LINE#         35
+  C:0040H         LINE#         37
+  C:0044H         LINE#         39
+  C:0048H         LINE#         40
+  C:004CH         LINE#         42
+  C:0050H         LINE#         43
+  -------         ENDPROC       _GPIO_P5MODE
+  -------         ENDMOD        STC8F_GPIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INT3_ISR?MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GPIO_P1MODE?STC8F_GPIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GPIO_P3MODE?STC8F_GPIO
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_GPIO_P5MODE?STC8F_GPIO
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/19/2019  15:35:25  PAGE 4
+
+
+
+Program Size: data=9.0 xdata=0 code=104
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)

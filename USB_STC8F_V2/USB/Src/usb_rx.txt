@@ -1,0 +1,239 @@
+
+#define PORT            0xB0
+
+NAME	USB_RX
+	
+?PR?usb_rx?USB_RX SEGMENT CODE
+	EXTRN	DATA (usb_rx_buffer)
+	EXTRN	CODE (usb_received)
+	PUBLIC usb_rx
+	RSEG  ?PR?usb_rx?USB_RX
+usb_rx:
+	MOV A, #10
+delay:
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	DEC A
+	JNZ delay
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	
+	NOP
+	NOP
+	NOP
+	NOP
+	
+	MOV R2, #0x40
+	MOV R1, #usb_rx_buffer
+	MOV R0, #13
+	MOV @R1, #0x80
+	
+bit0:
+	CPL 0xB0.5
+	MOV A, PORT                           ; 1
+	ANL A, #0xC0                          ; 1
+	JZ END_RX                             ; 1/3
+	XRL A, R2                             ; 1
+	CLR C                                 ; 1
+	RRC A                                 ; 1
+	MOV R2, A                             ; 1
+	INC R1								  ; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	;NOP
+bit1:
+	MOV A, PORT                           ; 1
+	ANL A, #0xC0                          ; 1
+	JZ END_RX                             ; 1/3
+	XRL A, R2                             ; 1
+	CLR C                                 ; 1
+	RRC A                                 ; 1
+	MOV R2, A                             ; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+bit2:
+	MOV A, PORT                           ; 1
+	ANL A, #0xC0                          ; 1
+	JZ END_RX                             ; 1/3
+	XRL A, R2                             ; 1
+	CLR C                                 ; 1
+	RRC A                                 ; 1
+	MOV R2, A                             ; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+bit3:
+	MOV A, PORT							; 1
+	ANL A, #0xC0						; 1
+	JZ END_RX							; 1/3
+	XRL A, R2							; 1
+	CLR C								; 1
+	RRC A								; 1
+	MOV R2, A							; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	SJMP bit4							; 3
+	
+END_RX:
+	LCALL usb_received
+	RET
+		
+bit4:
+	MOV A, PORT							; 1
+	ANL A, #0xC0						; 1
+	JZ END_RX							; 1/3
+	XRL A, R2							; 1
+	CLR C								; 1
+	RRC A								; 1
+	MOV R2, A							; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+bit5:
+	MOV A, PORT							; 1
+	ANL A, #0xC0						; 1
+	JZ END_RX                           ; 1/3
+	XRL A, R2                           ; 1
+	CLR C                               ; 1
+	RRC A                               ; 1
+	MOV R2, A                           ; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+bit6:
+	MOV A, PORT                         ; 1
+	ANL A, #0xC0                        ; 1
+	JZ END_RX                           ; 1/3
+	XRL A, R2                           ; 1
+	CLR C                               ; 1
+	RRC A                               ; 1
+	MOV R2, A                           ; 1
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+Bit7:
+	MOV A, PORT                         ; 1
+	ANL A, #0xC0                        ; 1
+	JZ END_RX                           ; 1/3
+	XRL A, R2                           ; 1
+
+	RLC A                               ; 1
+	MOV @R1, A							; 1
+	RRC A                               ; 1
+
+	CLR C                               ; 1
+	RRC A                               ; 1
+	MOV R2, A                           ; 1
+	
+	DEC R0								; 1
+	MOV A, R0							; 1
+	JZ END_RX							; 1/3
+	
+	NOP
+	NOP
+	NOP
+	NOP
+	AJMP bit0
+	
+bit_idle:
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	RET
+	
+	END
