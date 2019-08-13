@@ -1,6 +1,7 @@
 ﻿# Mô tả và giới thiệu:
 * Project này thực hiện giao tiếp USB low speed trên dòng vi điều khiển STC8F sử dụng nhấn 8051-1T
 * Chương trình này có thể thực thi ngay trên STC8F2K08S2 và STC8F2K16S2 mà không cần chỉnh sửa gì.
+* Project được viết và biên dịch trên KeilC
 # Thiết lập phần cứng cơ bản:
 * Chạy ở tần số 27MHz.
 * P3.0 - D-
