@@ -32,9 +32,8 @@ delay:
 	NOP
 	NOP
 	NOP
-	NOP
-	
-	NOP
+	;NOP
+	;NOP
 	
 	MOV R3, #0x06
 	MOV R2, #0x01

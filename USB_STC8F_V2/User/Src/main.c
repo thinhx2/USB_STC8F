@@ -11,7 +11,7 @@
 #include "main.h"
 #include "usb.h"
 
-void USB_Received(unsigned char *buffer, unsigned char length){
+void USB_Received(unsigned char *buffer, unsigned char length) reentrant {
 	
 }
 

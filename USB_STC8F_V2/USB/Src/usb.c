@@ -43,7 +43,7 @@ static void usb_send_answer(){
   P3M1 |= 0x03;
 }
 
-void usb_received() {
+static void usb_received_reentrant() reentrant {
 	static unsigned char data data_count = 0, pid_data_old;
 	UDRF = 0;
 	if(usb_rx_buffer[1] == USB_PID_OUT){
@@ -175,6 +175,10 @@ void usb_received() {
 		usb.state = USB_STATE_IDLE;
 		break;
   }
+}
+
+void usb_received() {
+	usb_received_reentrant();
 }
 
 static const unsigned char code usb_report_null[] = {
@@ -467,7 +471,7 @@ void USB_Process() {
 			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null), 1);
 	}
 	if(usb.received){
-		extern void USB_Received(unsigned char *buffer, unsigned char length);
+		extern void USB_Received(unsigned char *buffer, unsigned char length) reentrant;
 		unsigned int xdata timeStart;
 		usb.ack = 0;
 		USB_SendNull();
