@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 1   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USB
@@ -62,7 +62,7 @@ line level    source
   52   3            usb.state = USB_STATE_OUT;
   53   3            usb.endpoint = usb_rx_buffer[2] >> 7;
   54   3            usb.endpoint |= ((usb_rx_buffer[3] & 0x07) << 1);
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 2   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 2   
 
   55   3          }
   56   2        }
@@ -126,7 +126,7 @@ line level    source
  114   4            rx_buffer[3] = usb_rx_buffer[3];
  115   4            rx_buffer[4] = usb_rx_buffer[4];
  116   4            rx_buffer[5] = usb_rx_buffer[5];
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 3   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 3   
 
  117   4            rx_buffer[6] = usb_rx_buffer[6];
  118   4            rx_buffer[7] = usb_rx_buffer[7];
@@ -190,7 +190,7 @@ line level    source
  176   2          break;
  177   2        }
  178   1      }
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 4   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 4   
 
  179          
  180          static const unsigned char code usb_report_null[] = {
@@ -254,7 +254,7 @@ line level    source
  238   2        }
  239   1        crc = ~crc;
  240   1        usb_tx_buffer[i] = crc;
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 5   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 5   
 
  241   1        usb_tx_buffer[i + 1] = crc >> 8;
  242   1      }
@@ -318,7 +318,7 @@ line level    source
  300   4              usb_tx_count = 0;
  301   4              return;
  302   4            }
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 6   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 6   
 
  303   3            if((unsigned int)(USB_TimerTick - timeStart) > (100 / TimerTickStep)){
  304   4              usb_tx_count = 0;
@@ -382,7 +382,7 @@ line level    source
  362   3            for(i = 2; i < (length + 2); i++)
  363   3              usb_tx_buffer[i] = *buffer++;
  364   3            usb_calc_crc16(length);
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 7   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 7   
 
  365   3            usb_tx_count = length + 4;
  366   3            length = 0;
@@ -446,7 +446,7 @@ line level    source
              -r), 1);
  424   5                break;
  425   5              case USBDESCR_STRING:
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 8   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 8   
 
  426   5                if(rx_buffer[4] == 0)
  427   5                  USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_lan
@@ -510,7 +510,7 @@ line level    source
  481   2          USB_Received(usb_data, usb.wLength);
  482   2        }
  483   1        usb_exit_process();
-C51 COMPILER V9.59.0.0   USB                                                               08/13/2019 16:08:36 PAGE 9   
+C51 COMPILER V9.59.0.0   USB                                                               08/14/2019 09:51:37 PAGE 9   
 
  484   1      }
 
