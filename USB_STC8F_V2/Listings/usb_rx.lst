@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     1
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -42,310 +42,310 @@ LOC  OBJ            LINE     SOURCE
 000D 00               32             NOP
 000E 00               33             NOP
 000F 00               34             NOP
-                      35             ;NOP
-                      36             ;NOP
+0010 00               35             NOP
+0011 00               36             NOP
                       37             
-0010 7B06             38             MOV R3, #0x06
-0012 7A01             39             MOV R2, #0x01
-0014 7900     F       40             MOV R1, #usb_rx_buffer
-0016 780C             41             MOV R0, #12
-0018 7780             42             MOV @R1, #0x80
+0012 7B06             38             MOV R3, #0x06
+0014 7A01             39             MOV R2, #0x01
+0016 7900     F       40             MOV R1, #usb_rx_buffer
+0018 780C             41             MOV R0, #12
+001A 7780             42             MOV @R1, #0x80
                       43             
-001A 020000   F       44             LJMP bit0
+001C 020000   F       44             LJMP bit0
                       45             
-001D                  46     bit7:
-001D E5B0             47             MOV A, 0xB0                           ; 1
-001F 5403             48             ANL A, #0x03                          ; 1
-0021 605F             49             JZ END1_RX                            ; 1/3
-0023 6A               50             XRL A, R2                             ; 1
+001F                  46     bit7:
+001F E5B0             47             MOV A, 0xB0                           ; 1
+0021 5403             48             ANL A, #0x03                          ; 1
+0023 605F             49             JZ END1_RX                            ; 1/3
+0025 6A               50             XRL A, R2                             ; 1
                       51     
-0024 13               52             RRC A
-0025 13               53             RRC A
-0026 F7               54             MOV @R1, A
-0027 33               55             RLC A
-0028 C2E1             56             CLR 0xE0.1
-002A FA               57             MOV R2, A                                                         ; 10
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     2
+0026 13               52             RRC A
+0027 13               53             RRC A
+0028 F7               54             MOV @R1, A
+0029 33               55             RLC A
+002A C2E1             56             CLR 0xE0.1
+002C FA               57             MOV R2, A                                                         ; 10
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     2
 
                       58             
-002B 00               59             NOP
-002C 500B             60             JNC next7
+002D 00               59             NOP
+002E 500B             60             JNC next7
                       61             
-002E 00               62             NOP
-002F 00               63             NOP
-0030 00               64             NOP
-0031 DB0B             65             DJNZ R3, bit0                             ; 2/3
-0033 120000   F       66             LCALL bit_idle                        ; 
-0036 020000   F       67             LJMP bit0                             ; 3
-0039                  68     next7:
-0039 7B06             69             MOV R3, #0x06                                             ; 1
-003B 020000   F       70             LJMP bit0
+0030 00               62             NOP
+0031 00               63             NOP
+0032 00               64             NOP
+0033 DB0B             65             DJNZ R3, bit0                             ; 2/3
+0035 120000   F       66             LCALL bit_idle                        ; 
+0038 020000   F       67             LJMP bit0                             ; 3
+003B                  68     next7:
+003B 7B06             69             MOV R3, #0x06                                             ; 1
+003D 020000   F       70             LJMP bit0
                       71             
-003E                  72     bit0:
+0040                  72     bit0:
                       73     
                                      
                              
-003E 00               76             NOP
+0040 00               76             NOP
                       77     
-003F E5B0             78             MOV A, 0xB0                           ; 1
-0041 5403             79             ANL A, #0x03                          ; 1
-0043 603D             80             JZ END1_RX                            ; 1/3
-0045 6A               81             XRL A, R2                             ; 1
-0046 C2E2             82             CLR 0xE0.2                            ; 1
-0048 13               83             RRC A                                 ; 1
-0049 FA               84             MOV R2, A                             ; 1
-004A 09               85             INC R1                                                            ; 1
+0041 E5B0             78             MOV A, 0xB0                           ; 1
+0043 5403             79             ANL A, #0x03                          ; 1
+0045 603D             80             JZ END1_RX                            ; 1/3
+0047 6A               81             XRL A, R2                             ; 1
+0048 C2E2             82             CLR 0xE0.2                            ; 1
+004A 13               83             RRC A                                 ; 1
+004B FA               84             MOV R2, A                             ; 1
+004C 09               85             INC R1                                                            ; 1
                       86             
-004B E8               87             MOV A, R0                                                         ; 1
-004C 6034             88             JZ END1_RX                                                        ; 1/3
+004D E8               87             MOV A, R0                                                         ; 1
+004E 6034             88             JZ END1_RX                                                        ; 1/3
                       89             
-004E 00               90             NOP
-004F 500A             91             JNC next0
-0051 00               92             NOP
-0052 00               93             NOP                                                                       ; 15
-0053 DB0A             94             DJNZ R3, bit1                         ; 2/3
-0055 120000   F       95             LCALL bit_idle                        ; 
-0058 020000   F       96             LJMP bit1                             ; 3
-005B                  97     next0:
-005B 7B06             98             MOV R3, #0x06                                             ; 1
-005D 00               99             NOP
-005E 00              100             NOP
-005F                 101     bit1:
-005F E5B0            102             MOV A, 0xB0                           ; 1
-0061 5403            103             ANL A, #0x03                          ; 1
-0063 601D            104             JZ END1_RX                            ; 1/3
-0065 6A              105             XRL A, R2                             ; 1
-0066 C2E2            106             CLR 0xE0.2                            ; 1
-0068 13              107             RRC A                                 ; 1
-0069 FA              108             MOV R2, A                             ; 1
-006A 00              109             NOP                                                                       ; 1
+0050 00               90             NOP
+0051 500A             91             JNC next0
+0053 00               92             NOP
+0054 00               93             NOP                                                                       ; 15
+0055 DB0A             94             DJNZ R3, bit1                         ; 2/3
+0057 120000   F       95             LCALL bit_idle                        ; 
+005A 020000   F       96             LJMP bit1                             ; 3
+005D                  97     next0:
+005D 7B06             98             MOV R3, #0x06                                             ; 1
+005F 00               99             NOP
+0060 00              100             NOP
+0061                 101     bit1:
+0061 E5B0            102             MOV A, 0xB0                           ; 1
+0063 5403            103             ANL A, #0x03                          ; 1
+0065 601D            104             JZ END1_RX                            ; 1/3
+0067 6A              105             XRL A, R2                             ; 1
+0068 C2E2            106             CLR 0xE0.2                            ; 1
+006A 13              107             RRC A                                 ; 1
+006B FA              108             MOV R2, A                             ; 1
+006C 00              109             NOP                                                                       ; 1
                      110             
-006B 00              111             NOP
-006C 500D            112             JNC next1
-006E 00              113             NOP
-006F 00              114             NOP
-0070 00              115             NOP
-0071 00              116             NOP
-0072 00              117             NOP
-0073 DB32            118             DJNZ R3, bit2                         ; 2/3
-0075 120000   F      119             LCALL bit_idle                        ; 
-0078 020000   F      120             LJMP bit2                             ; 3
-007B                 121     next1:
-007B 7B06            122             MOV R3, #0x06                                             ; 1
-007D 00              123             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     3
+006D 00              111             NOP
+006E 500D            112             JNC next1
+0070 00              113             NOP
+0071 00              114             NOP
+0072 00              115             NOP
+0073 00              116             NOP
+0074 00              117             NOP
+0075 DB32            118             DJNZ R3, bit2                         ; 2/3
+0077 120000   F      119             LCALL bit_idle                        ; 
+007A 020000   F      120             LJMP bit2                             ; 3
+007D                 121     next1:
+007D 7B06            122             MOV R3, #0x06                                             ; 1
+007F 00              123             NOP
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     3
 
-007E 00              124             NOP
-007F 020000   F      125             LJMP bit2
+0080 00              124             NOP
+0081 020000   F      125             LJMP bit2
                      126             
-0082                 127     END1_RX:
-0082 740D            128             MOV A, #13
-0084 98              129             SUBB A, R0
-0085 F500     F      130             MOV usb_rx_count, A
-0087 120000   F      131             LCALL usb_received
-008A E500     F      132             MOV A, UDRF
-008C 5500     F      133             ANL A, UEPF
-008E 7001            134             JNZ goto_usb_process1
-0090 22              135             RET
-0091                 136     goto_usb_process1:
-0091 C289            137             CLR 0x88.1
-0093 D2AF            138             SETB 0xA8.7
-0095 750000   F      139             MOV UEPF, #0
-0098 D0E0            140             POP ACC
-009A D0E0            141             POP ACC
+0084                 127     END1_RX:
+0084 740D            128             MOV A, #13
+0086 98              129             SUBB A, R0
+0087 F500     F      130             MOV usb_rx_count, A
+0089 120000   F      131             LCALL usb_received
+008C E500     F      132             MOV A, UDRF
+008E 5500     F      133             ANL A, UEPF
+0090 7001            134             JNZ goto_usb_process1
+0092 22              135             RET
+0093                 136     goto_usb_process1:
+0093 C289            137             CLR 0x88.1
+0095 D2AF            138             SETB 0xA8.7
+0097 750000   F      139             MOV UEPF, #0
+009A D0E0            140             POP ACC
+009C D0E0            141             POP ACC
                      142             
-009C 900000   F      143             MOV DPTR, #USB_Process
-009F C082            144             PUSH DPL
-00A1 C083            145             PUSH DPH
-00A3 75D000          146             MOV PSW, #0
-00A6 32              147             RETI
+009E 900000   F      143             MOV DPTR, #USB_Process
+00A1 C082            144             PUSH DPL
+00A3 C083            145             PUSH DPH
+00A5 75D000          146             MOV PSW, #0
+00A8 32              147             RETI
                      148             
-00A7                 149     bit2:
-00A7 E5B0            150             MOV A, 0xB0                           ; 1
-00A9 5403            151             ANL A, #0x03                          ; 1
-00AB 60D5            152             JZ END1_RX                            ; 1/3
-00AD 6A              153             XRL A, R2                             ; 1
-00AE C2E2            154             CLR 0xE0.2                            ; 1
-00B0 13              155             RRC A                                 ; 1
-00B1 FA              156             MOV R2, A                             ; 1
-00B2 00              157             NOP
+00A9                 149     bit2:
+00A9 E5B0            150             MOV A, 0xB0                           ; 1
+00AB 5403            151             ANL A, #0x03                          ; 1
+00AD 60D5            152             JZ END1_RX                            ; 1/3
+00AF 6A              153             XRL A, R2                             ; 1
+00B0 C2E2            154             CLR 0xE0.2                            ; 1
+00B2 13              155             RRC A                                 ; 1
+00B3 FA              156             MOV R2, A                             ; 1
+00B4 00              157             NOP
                      158             
-00B3 00              159             NOP
-00B4 500D            160             JNC next2
-00B6 00              161             NOP
-00B7 00              162             NOP
-00B8 00              163             NOP
-00B9 00              164             NOP
-00BA 00              165             NOP
-00BB DB0D            166             DJNZ R3, bit3                         ; 2/3
-00BD 120000   F      167             LCALL bit_idle                        ; 
-00C0 020000   F      168             LJMP bit3                             ; 3
-00C3                 169     next2:
-00C3 7B06            170             MOV R3, #0x06                                             ; 1
-00C5 00              171             NOP
-00C6 00              172             NOP
-00C7 00              173             NOP
-00C8 00              174             NOP
-00C9 00              175             NOP
-00CA                 176     bit3:
-00CA E5B0            177             MOV A, 0xB0                                                       ; 1
-00CC 5403            178             ANL A, #0x03                                              ; 1
-00CE 60B2            179             JZ END1_RX                                                        ; 1/3
-00D0 6A              180             XRL A, R2                                                         ; 1
-00D1 C2E2            181             CLR 0xE0.2                            ; 1
-00D3 13              182             RRC A                                                             ; 1
-00D4 FA              183             MOV R2, A                                                         ; 1
-00D5 00              184             NOP
+00B5 00              159             NOP
+00B6 500D            160             JNC next2
+00B8 00              161             NOP
+00B9 00              162             NOP
+00BA 00              163             NOP
+00BB 00              164             NOP
+00BC 00              165             NOP
+00BD DB0D            166             DJNZ R3, bit3                         ; 2/3
+00BF 120000   F      167             LCALL bit_idle                        ; 
+00C2 020000   F      168             LJMP bit3                             ; 3
+00C5                 169     next2:
+00C5 7B06            170             MOV R3, #0x06                                             ; 1
+00C7 00              171             NOP
+00C8 00              172             NOP
+00C9 00              173             NOP
+00CA 00              174             NOP
+00CB 00              175             NOP
+00CC                 176     bit3:
+00CC E5B0            177             MOV A, 0xB0                                                       ; 1
+00CE 5403            178             ANL A, #0x03                                              ; 1
+00D0 60B2            179             JZ END1_RX                                                        ; 1/3
+00D2 6A              180             XRL A, R2                                                         ; 1
+00D3 C2E2            181             CLR 0xE0.2                            ; 1
+00D5 13              182             RRC A                                                             ; 1
+00D6 FA              183             MOV R2, A                                                         ; 1
+00D7 00              184             NOP
                      185             
-00D6 00              186             NOP
-00D7 500D            187             JNC next3
-00D9 00              188             NOP
-00DA 00              189             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     4
+00D8 00              186             NOP
+00D9 500D            187             JNC next3
+00DB 00              188             NOP
+00DC 00              189             NOP
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     4
 
-00DB 00              190             NOP
-00DC 00              191             NOP
-00DD 00              192             NOP
-00DE DB0D            193             DJNZ R3, bit4                         ; 2/3
-00E0 120000   F      194             LCALL bit_idle                        ; 
-00E3 020000   F      195             LJMP bit4                             ; 3
-00E6                 196     next3:
-00E6 7B06            197             MOV R3, #0x06                                             ; 1
-00E8 00              198             NOP
-00E9 00              199             NOP
-00EA 00              200             NOP
-00EB 00              201             NOP
-00EC 00              202             NOP
+00DD 00              190             NOP
+00DE 00              191             NOP
+00DF 00              192             NOP
+00E0 DB0D            193             DJNZ R3, bit4                         ; 2/3
+00E2 120000   F      194             LCALL bit_idle                        ; 
+00E5 020000   F      195             LJMP bit4                             ; 3
+00E8                 196     next3:
+00E8 7B06            197             MOV R3, #0x06                                             ; 1
+00EA 00              198             NOP
+00EB 00              199             NOP
+00EC 00              200             NOP
+00ED 00              201             NOP
+00EE 00              202             NOP
                      203             
-00ED                 204     bit4:
-00ED E5B0            205             MOV A, 0xB0                                                       ; 1
-00EF 5403            206             ANL A, #0x03                                              ; 1
-00F1 6040            207             JZ END2_RX                                                        ; 1/3
-00F3 6A              208             XRL A, R2                                                         ; 1
-00F4 C2E2            209             CLR 0xE0.2                            ; 1
-00F6 13              210             RRC A                                                             ; 1
-00F7 FA              211             MOV R2, A                                                         ; 1
-00F8 00              212             NOP
+00EF                 204     bit4:
+00EF E5B0            205             MOV A, 0xB0                                                       ; 1
+00F1 5403            206             ANL A, #0x03                                              ; 1
+00F3 6040            207             JZ END2_RX                                                        ; 1/3
+00F5 6A              208             XRL A, R2                                                         ; 1
+00F6 C2E2            209             CLR 0xE0.2                            ; 1
+00F8 13              210             RRC A                                                             ; 1
+00F9 FA              211             MOV R2, A                                                         ; 1
+00FA 00              212             NOP
                      213     
-00F9 00              214             NOP
-00FA 500D            215             JNC next4
-00FC 00              216             NOP
-00FD 00              217             NOP
-00FE 00              218             NOP
-00FF 00              219             NOP
-0100 00              220             NOP
-0101 DB0D            221             DJNZ R3, bit5                         ; 2/3
-0103 120000   F      222             LCALL bit_idle                        ; 
-0106 020000   F      223             LJMP bit5                             ; 3
-0109                 224     next4:
-0109 7B06            225             MOV R3, #0x06                                             ; 1
-010B 00              226             NOP
-010C 00              227             NOP
-010D 00              228             NOP
-010E 00              229             NOP
-010F 00              230             NOP
-0110                 231     bit5:
-0110 E5B0            232             MOV A, 0xB0                                                       ; 1
-0112 5403            233             ANL A, #0x03                                              ; 1
-0114 601D            234             JZ END2_RX                            ; 1/3
-0116 6A              235             XRL A, R2                             ; 1
-0117 C2E2            236             CLR 0xE0.2                            ; 1
-0119 13              237             RRC A                                 ; 1
-011A FA              238             MOV R2, A                             ; 1
-011B 00              239             NOP
+00FB 00              214             NOP
+00FC 500D            215             JNC next4
+00FE 00              216             NOP
+00FF 00              217             NOP
+0100 00              218             NOP
+0101 00              219             NOP
+0102 00              220             NOP
+0103 DB0D            221             DJNZ R3, bit5                         ; 2/3
+0105 120000   F      222             LCALL bit_idle                        ; 
+0108 020000   F      223             LJMP bit5                             ; 3
+010B                 224     next4:
+010B 7B06            225             MOV R3, #0x06                                             ; 1
+010D 00              226             NOP
+010E 00              227             NOP
+010F 00              228             NOP
+0110 00              229             NOP
+0111 00              230             NOP
+0112                 231     bit5:
+0112 E5B0            232             MOV A, 0xB0                                                       ; 1
+0114 5403            233             ANL A, #0x03                                              ; 1
+0116 601D            234             JZ END2_RX                            ; 1/3
+0118 6A              235             XRL A, R2                             ; 1
+0119 C2E2            236             CLR 0xE0.2                            ; 1
+011B 13              237             RRC A                                 ; 1
+011C FA              238             MOV R2, A                             ; 1
+011D 00              239             NOP
                      240     
-011C 00              241             NOP
-011D 500D            242             JNC next5
-011F 00              243             NOP
-0120 00              244             NOP
-0121 00              245             NOP
-0122 00              246             NOP
-0123 00              247             NOP
-0124 DB32            248             DJNZ R3, bit6                         ; 2/3
-0126 120000   F      249             LCALL bit_idle                        ; 
-0129 020000   F      250             LJMP bit6                             ; 3
-012C                 251     next5:
-012C 7B06            252             MOV R3, #0x06                                             ; 1
-012E 00              253             NOP
-012F 00              254             NOP
-0130 020000   F      255             LJMP bit6
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     5
+011E 00              241             NOP
+011F 500D            242             JNC next5
+0121 00              243             NOP
+0122 00              244             NOP
+0123 00              245             NOP
+0124 00              246             NOP
+0125 00              247             NOP
+0126 DB32            248             DJNZ R3, bit6                         ; 2/3
+0128 120000   F      249             LCALL bit_idle                        ; 
+012B 020000   F      250             LJMP bit6                             ; 3
+012E                 251     next5:
+012E 7B06            252             MOV R3, #0x06                                             ; 1
+0130 00              253             NOP
+0131 00              254             NOP
+0132 020000   F      255             LJMP bit6
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     5
 
                      256             
-0133                 257     END2_RX:
-0133 740D            258             MOV A, #13
-0135 98              259             SUBB A, R0
-0136 F500     F      260             MOV usb_rx_count, A
-0138 120000   F      261             LCALL usb_received
-013B E500     F      262             MOV A, UDRF
-013D 5500     F      263             ANL A, UEPF
-013F 7001            264             JNZ goto_usb_process2
-0141 22              265             RET
-0142                 266     goto_usb_process2:
-0142 C289            267             CLR 0x88.1
-0144 D2AF            268             SETB 0xA8.7
-0146 750000   F      269             MOV UEPF, #0
-0149 D0E0            270             POP ACC
-014B D0E0            271             POP ACC
+0135                 257     END2_RX:
+0135 740D            258             MOV A, #13
+0137 98              259             SUBB A, R0
+0138 F500     F      260             MOV usb_rx_count, A
+013A 120000   F      261             LCALL usb_received
+013D E500     F      262             MOV A, UDRF
+013F 5500     F      263             ANL A, UEPF
+0141 7001            264             JNZ goto_usb_process2
+0143 22              265             RET
+0144                 266     goto_usb_process2:
+0144 C289            267             CLR 0x88.1
+0146 D2AF            268             SETB 0xA8.7
+0148 750000   F      269             MOV UEPF, #0
+014B D0E0            270             POP ACC
+014D D0E0            271             POP ACC
                      272             
-014D 900000   F      273             MOV DPTR, #USB_Process
-0150 C082            274             PUSH DPL
-0152 C083            275             PUSH DPH
-0154 75D000          276             MOV PSW, #0
-0157 32              277             RETI
+014F 900000   F      273             MOV DPTR, #USB_Process
+0152 C082            274             PUSH DPL
+0154 C083            275             PUSH DPH
+0156 75D000          276             MOV PSW, #0
+0159 32              277             RETI
                      278             
-0158                 279     bit6:
-0158 E5B0            280             MOV A, 0xB0                           ; 1
-015A 5403            281             ANL A, #0x03                          ; 1
-015C 60D5            282             JZ END2_RX                            ; 1/3
-015E 6A              283             XRL A, R2                             ; 1
-015F C2E2            284             CLR 0xE0.2                            ; 1
-0161 13              285             RRC A                                 ; 1
-0162 FA              286             MOV R2, A                             ; 1
-0163 18              287             DEC R0                                                            ; 1
+015A                 279     bit6:
+015A E5B0            280             MOV A, 0xB0                           ; 1
+015C 5403            281             ANL A, #0x03                          ; 1
+015E 60D5            282             JZ END2_RX                            ; 1/3
+0160 6A              283             XRL A, R2                             ; 1
+0161 C2E2            284             CLR 0xE0.2                            ; 1
+0163 13              285             RRC A                                 ; 1
+0164 FA              286             MOV R2, A                             ; 1
+0165 18              287             DEC R0                                                            ; 1
                      288     
-0164 00              289             NOP
-0165 5010            290             JNC next6
-0167 00              291             NOP
-0168 00              292             NOP
-0169 DB09            293             DJNZ R3, goto_bit7                    ; 2/3
-016B 00              294             NOP
-016C 00              295             NOP
-016D 00              296             NOP
-016E 120000   F      297             LCALL bit_idle                        ; 
-0171 020000   F      298             LJMP bit7                             ; 3
-0174                 299     goto_bit7:
-0174 020000   F      300             LJMP bit7
+0166 00              289             NOP
+0167 5010            290             JNC next6
+0169 00              291             NOP
+016A 00              292             NOP
+016B DB09            293             DJNZ R3, goto_bit7                    ; 2/3
+016D 00              294             NOP
+016E 00              295             NOP
+016F 00              296             NOP
+0170 120000   F      297             LCALL bit_idle                        ; 
+0173 020000   F      298             LJMP bit7                             ; 3
+0176                 299     goto_bit7:
+0176 020000   F      300             LJMP bit7
                      301     
-0177                 302     next6:
-0177 7B06            303             MOV R3, #0x06                                             ; 1
-0179 00              304             NOP
-017A 00              305             NOP
-017B 020000   F      306             LJMP bit7
+0179                 302     next6:
+0179 7B06            303             MOV R3, #0x06                                             ; 1
+017B 00              304             NOP
+017C 00              305             NOP
+017D 020000   F      306             LJMP bit7
                      307             
-017E                 308     bit_idle:
-017E 7B06            309             MOV R3, #0x06
+0180                 308     bit_idle:
+0180 7B06            309             MOV R3, #0x06
                      310     
                                      
                              
-0180 00              313             NOP
+0182 00              313             NOP
                      314     
-0181 EA              315             MOV A, R2
-0182 B2E0            316             CPL 0xE0.0
-0184 FA              317             MOV R2, A
-0185 00              318             NOP
-0186 00              319             NOP
-0187 00              320             NOP
-0188 00              321             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     6
+0183 EA              315             MOV A, R2
+0184 B2E0            316             CPL 0xE0.0
+0186 FA              317             MOV R2, A
+0187 00              318             NOP
+0188 00              319             NOP
+0189 00              320             NOP
+018A 00              321             NOP
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     6
 
-0189 00              322             NOP
+018B 00              322             NOP
                      323             ;NOP
                      324             ;NOP
-018A 22              325             RET
+018C 22              325             RET
                      326             
                      327             END
-A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:42:40 PAGE     7
+A51 MACRO ASSEMBLER  USB_RX                                                               08/14/2019 10:51:24 PAGE     7
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -353,33 +353,33 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-?PR?USB_RX?USB_RX.  C SEG    018BH       REL=UNIT
+?PR?USB_RX?USB_RX.  C SEG    018DH       REL=UNIT
 ACC. . . . . . . .  D ADDR   00E0H   A   
-BIT0 . . . . . . .  C ADDR   003EH   R   SEG=?PR?USB_RX?USB_RX
-BIT1 . . . . . . .  C ADDR   005FH   R   SEG=?PR?USB_RX?USB_RX
-BIT2 . . . . . . .  C ADDR   00A7H   R   SEG=?PR?USB_RX?USB_RX
-BIT3 . . . . . . .  C ADDR   00CAH   R   SEG=?PR?USB_RX?USB_RX
-BIT4 . . . . . . .  C ADDR   00EDH   R   SEG=?PR?USB_RX?USB_RX
-BIT5 . . . . . . .  C ADDR   0110H   R   SEG=?PR?USB_RX?USB_RX
-BIT6 . . . . . . .  C ADDR   0158H   R   SEG=?PR?USB_RX?USB_RX
-BIT7 . . . . . . .  C ADDR   001DH   R   SEG=?PR?USB_RX?USB_RX
-BIT_IDLE . . . . .  C ADDR   017EH   R   SEG=?PR?USB_RX?USB_RX
+BIT0 . . . . . . .  C ADDR   0040H   R   SEG=?PR?USB_RX?USB_RX
+BIT1 . . . . . . .  C ADDR   0061H   R   SEG=?PR?USB_RX?USB_RX
+BIT2 . . . . . . .  C ADDR   00A9H   R   SEG=?PR?USB_RX?USB_RX
+BIT3 . . . . . . .  C ADDR   00CCH   R   SEG=?PR?USB_RX?USB_RX
+BIT4 . . . . . . .  C ADDR   00EFH   R   SEG=?PR?USB_RX?USB_RX
+BIT5 . . . . . . .  C ADDR   0112H   R   SEG=?PR?USB_RX?USB_RX
+BIT6 . . . . . . .  C ADDR   015AH   R   SEG=?PR?USB_RX?USB_RX
+BIT7 . . . . . . .  C ADDR   001FH   R   SEG=?PR?USB_RX?USB_RX
+BIT_IDLE . . . . .  C ADDR   0180H   R   SEG=?PR?USB_RX?USB_RX
 DELAY. . . . . . .  C ADDR   0002H   R   SEG=?PR?USB_RX?USB_RX
 DPH. . . . . . . .  D ADDR   0083H   A   
 DPL. . . . . . . .  D ADDR   0082H   A   
-END1_RX. . . . . .  C ADDR   0082H   R   SEG=?PR?USB_RX?USB_RX
-END2_RX. . . . . .  C ADDR   0133H   R   SEG=?PR?USB_RX?USB_RX
-GOTO_BIT7. . . . .  C ADDR   0174H   R   SEG=?PR?USB_RX?USB_RX
-GOTO_USB_PROCESS1.  C ADDR   0091H   R   SEG=?PR?USB_RX?USB_RX
-GOTO_USB_PROCESS2.  C ADDR   0142H   R   SEG=?PR?USB_RX?USB_RX
-NEXT0. . . . . . .  C ADDR   005BH   R   SEG=?PR?USB_RX?USB_RX
-NEXT1. . . . . . .  C ADDR   007BH   R   SEG=?PR?USB_RX?USB_RX
-NEXT2. . . . . . .  C ADDR   00C3H   R   SEG=?PR?USB_RX?USB_RX
-NEXT3. . . . . . .  C ADDR   00E6H   R   SEG=?PR?USB_RX?USB_RX
-NEXT4. . . . . . .  C ADDR   0109H   R   SEG=?PR?USB_RX?USB_RX
-NEXT5. . . . . . .  C ADDR   012CH   R   SEG=?PR?USB_RX?USB_RX
-NEXT6. . . . . . .  C ADDR   0177H   R   SEG=?PR?USB_RX?USB_RX
-NEXT7. . . . . . .  C ADDR   0039H   R   SEG=?PR?USB_RX?USB_RX
+END1_RX. . . . . .  C ADDR   0084H   R   SEG=?PR?USB_RX?USB_RX
+END2_RX. . . . . .  C ADDR   0135H   R   SEG=?PR?USB_RX?USB_RX
+GOTO_BIT7. . . . .  C ADDR   0176H   R   SEG=?PR?USB_RX?USB_RX
+GOTO_USB_PROCESS1.  C ADDR   0093H   R   SEG=?PR?USB_RX?USB_RX
+GOTO_USB_PROCESS2.  C ADDR   0144H   R   SEG=?PR?USB_RX?USB_RX
+NEXT0. . . . . . .  C ADDR   005DH   R   SEG=?PR?USB_RX?USB_RX
+NEXT1. . . . . . .  C ADDR   007DH   R   SEG=?PR?USB_RX?USB_RX
+NEXT2. . . . . . .  C ADDR   00C5H   R   SEG=?PR?USB_RX?USB_RX
+NEXT3. . . . . . .  C ADDR   00E8H   R   SEG=?PR?USB_RX?USB_RX
+NEXT4. . . . . . .  C ADDR   010BH   R   SEG=?PR?USB_RX?USB_RX
+NEXT5. . . . . . .  C ADDR   012EH   R   SEG=?PR?USB_RX?USB_RX
+NEXT6. . . . . . .  C ADDR   0179H   R   SEG=?PR?USB_RX?USB_RX
+NEXT7. . . . . . .  C ADDR   003BH   R   SEG=?PR?USB_RX?USB_RX
 PSW. . . . . . . .  D ADDR   00D0H   A   
 UDRF . . . . . . .  D ADDR   -----       EXT
 UEPF . . . . . . .  D ADDR   -----       EXT

@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/14/2019 10:28:44 PAGE     1
+A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/14/2019 10:51:25 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -42,7 +42,7 @@ LOC  OBJ            LINE     SOURCE
 001D 22               32             RET
                       33                     
                       34             END
-A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/14/2019 10:28:44 PAGE     2
+A51 MACRO ASSEMBLER  USB_EXIT_PROCESS                                                     08/14/2019 10:51:25 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

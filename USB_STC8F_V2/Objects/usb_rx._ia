@@ -1,1 +1,0 @@
-"USB\Src\usb_rx.asm" SET (SMALL) DEBUG PRINT(.\Listings\usb_rx.lst) OBJECT(.\Objects\usb_rx.obj) EP
