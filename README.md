@@ -1,11 +1,11 @@
 ﻿# Mô tả và giới thiệu:
-* Project này thực hiện giao tiếp USB low speed trên dòng vi điều khiển STC8F sử dụng nhấn 8051-1T
-* Chương trình này có thể thực thi ngay trên STC8F2K08S2 và STC8F2K16S2 mà không cần chỉnh sửa gì.
+* Project này thực hiện giao tiếp USB low speed trên dòng vi điều khiển STC8F sử dụng nhân 8051-1T
+* Chương trình này có thể thực thi ngay trên STC8F2K08S2 và STC8F2K16S2 mà không cần chỉnh sửa gì thêm.
 * Project được viết và biên dịch trên KeilC
 # Thiết lập phần cứng cơ bản:
 * Chạy ở tần số 27MHz.
 * P3.0 - D-
-* P3.1 and P3.2	- D+ (P3.1 và P3.2 phải được nối vào nhau)
+* P3.1 và P3.2	- D+ (P3.1 và P3.2 phải được nối vào nhau)
 * Trở kéo 1.5K từ chân D- lên nguồn cấp (VCC)
 * Nên sử dụng nguồn cấp 3.3V cho MCU để tối giản số lượng linh kiện cần để hỗ trợ thêm.
 * Nếu sử dụng nguồn 5V bạn sẽ cần thêm trở mà diode zener 3.3V hoặc 3.6V để tạo mức logic
