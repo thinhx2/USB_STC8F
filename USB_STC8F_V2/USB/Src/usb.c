@@ -117,17 +117,16 @@ static void usb_received_reentrant() reentrant {
 			rx_buffer[6] = usb_rx_buffer[6];
 			rx_buffer[7] = usb_rx_buffer[7];
 			rx_buffer[8] = usb_rx_buffer[8];
-			
+			pid_data_old = USB_PID_DATA0;
+			data_count = 0;
+      usb.event = USB_EVENT_RECEIVE_SETUP_DATA;
+			UDRF = 1;
 			usb_send_ack();
 			
 //			wLength = usb_rx_buffer[9];
 //			wLength = (wLength << 8) | usb_rx_buffer[8];
 			
 			usb.wLength = usb_rx_buffer[8];
-			pid_data_old = USB_PID_DATA0;
-			data_count = 0;
-      usb.event = USB_EVENT_RECEIVE_SETUP_DATA;
-			UDRF = 1;
     }
 		break;
 	}
