@@ -85,16 +85,16 @@ static void usb_received_reentrant() reentrant {
 	case USB_PID_DATA0:{
     if(usb.state == USB_STATE_OUT){
 			if(pid_data_old == USB_PID_DATA1){
-				unsigned char *buffer = &usb_data[data_count];
+				unsigned char xdata *buffer = &usb_data[data_count];
 				buffer[0] = usb_rx_buffer[2];
 				buffer[1] = usb_rx_buffer[3];
 				buffer[2] = usb_rx_buffer[4];
 				buffer[3] = usb_rx_buffer[5];
 				buffer[4] = usb_rx_buffer[6];
 				buffer[5] = usb_rx_buffer[7];
-				usb_send_ack();
 				buffer[6] = usb_rx_buffer[8];
 				buffer[7] = usb_rx_buffer[9];
+				usb_send_ack();
 				data_count += 8;
 				if(data_count >= usb.wLength){
 					usb.received = 1;
@@ -134,16 +134,16 @@ static void usb_received_reentrant() reentrant {
 		if (usb.state == USB_STATE_OUT){
 			if(usb_rx_count > 4){
 				if(pid_data_old == USB_PID_DATA0){
-					unsigned char *buffer = &usb_data[data_count];
+					unsigned char xdata *buffer = &usb_data[data_count];
 					buffer[0] = usb_rx_buffer[2];
 					buffer[1] = usb_rx_buffer[3];
 					buffer[2] = usb_rx_buffer[4];
 					buffer[3] = usb_rx_buffer[5];
 					buffer[4] = usb_rx_buffer[6];
 					buffer[5] = usb_rx_buffer[7];
-					usb_send_ack();
 					buffer[6] = usb_rx_buffer[8];
 					buffer[7] = usb_rx_buffer[9];
+					usb_send_ack();
 					data_count += 8;
 					if(data_count >= usb.wLength){
 						usb.received = 1;

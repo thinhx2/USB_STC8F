@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 1   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USB
@@ -62,7 +62,7 @@ line level    source
   52   3            usb.state = USB_STATE_OUT;
   53   3            usb.endpoint = usb_rx_buffer[2] >> 7;
   54   3            usb.endpoint |= ((usb_rx_buffer[3] & 0x07) << 1);
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 2   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 2   
 
   55   3          }
   56   2        }
@@ -97,16 +97,16 @@ line level    source
   85   2        case USB_PID_DATA0:{
   86   3          if(usb.state == USB_STATE_OUT){
   87   4            if(pid_data_old == USB_PID_DATA1){
-  88   5              unsigned char *buffer = &usb_data[data_count];
+  88   5              unsigned char xdata *buffer = &usb_data[data_count];
   89   5              buffer[0] = usb_rx_buffer[2];
   90   5              buffer[1] = usb_rx_buffer[3];
   91   5              buffer[2] = usb_rx_buffer[4];
   92   5              buffer[3] = usb_rx_buffer[5];
   93   5              buffer[4] = usb_rx_buffer[6];
   94   5              buffer[5] = usb_rx_buffer[7];
-  95   5              usb_send_ack();
-  96   5              buffer[6] = usb_rx_buffer[8];
-  97   5              buffer[7] = usb_rx_buffer[9];
+  95   5              buffer[6] = usb_rx_buffer[8];
+  96   5              buffer[7] = usb_rx_buffer[9];
+  97   5              usb_send_ack();
   98   5              data_count += 8;
   99   5              if(data_count >= usb.wLength){
  100   6                usb.received = 1;
@@ -126,7 +126,7 @@ line level    source
  114   4            rx_buffer[3] = usb_rx_buffer[3];
  115   4            rx_buffer[4] = usb_rx_buffer[4];
  116   4            rx_buffer[5] = usb_rx_buffer[5];
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 3   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 3   
 
  117   4            rx_buffer[6] = usb_rx_buffer[6];
  118   4            rx_buffer[7] = usb_rx_buffer[7];
@@ -148,16 +148,16 @@ line level    source
  134   2          if (usb.state == USB_STATE_OUT){
  135   3            if(usb_rx_count > 4){
  136   4              if(pid_data_old == USB_PID_DATA0){
- 137   5                unsigned char *buffer = &usb_data[data_count];
+ 137   5                unsigned char xdata *buffer = &usb_data[data_count];
  138   5                buffer[0] = usb_rx_buffer[2];
  139   5                buffer[1] = usb_rx_buffer[3];
  140   5                buffer[2] = usb_rx_buffer[4];
  141   5                buffer[3] = usb_rx_buffer[5];
  142   5                buffer[4] = usb_rx_buffer[6];
  143   5                buffer[5] = usb_rx_buffer[7];
- 144   5                usb_send_ack();
- 145   5                buffer[6] = usb_rx_buffer[8];
- 146   5                buffer[7] = usb_rx_buffer[9];
+ 144   5                buffer[6] = usb_rx_buffer[8];
+ 145   5                buffer[7] = usb_rx_buffer[9];
+ 146   5                usb_send_ack();
  147   5                data_count += 8;
  148   5                if(data_count >= usb.wLength){
  149   6                  usb.received = 1;
@@ -190,7 +190,7 @@ line level    source
  176   2        }
  177   1      }
  178          
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 4   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 4   
 
  179          void usb_received() {
  180   1        usb_received_reentrant();
@@ -254,7 +254,7 @@ line level    source
  238   1        while(length--){
  239   2          crc = table[(crc ^ usb_tx_buffer[i]) & 0xFF] ^ (crc >> 8);
  240   2          i++;
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 5   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 5   
 
  241   2        }
  242   1        crc = ~crc;
@@ -318,7 +318,7 @@ line level    source
  300   2          timeStart = USB_TimerTick;
  301   2          while(usb_tx_count){
  302   3            if(usb.state != USB_STATE_IN){
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 6   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 6   
 
  303   4              usb_tx_count = 0;
  304   4              return;
@@ -382,7 +382,7 @@ line level    source
  362   3          }
  363   2          else{
  364   3            unsigned char data i;
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 7   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 7   
 
  365   3            for(i = 2; i < (length + 2); i++)
  366   3              usb_tx_buffer[i] = *buffer++;
@@ -446,7 +446,7 @@ line level    source
  424   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8], 1);
  425   5                else
  426   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descripto
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 8   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 8   
 
              -r), 1);
  427   5                break;
@@ -510,7 +510,7 @@ line level    source
  481   3            if((unsigned int)(USB_TimerTick - timeStart) > 5)
  482   3              usb_exit_process();
  483   3          }
-C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:07:47 PAGE 9   
+C51 COMPILER V9.59.0.0   USB                                                               08/15/2019 08:28:27 PAGE 9   
 
  484   2          USB_Received(usb_data, usb.wLength);
  485   2        }
@@ -519,7 +519,7 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   2280    ----
+   CODE SIZE        =   2312    ----
    CONSTANT SIZE    =    709    ----
    XDATA SIZE       =    285       2
    PDATA SIZE       =   ----    ----

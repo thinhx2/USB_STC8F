@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     1
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
 0029 33               55             RLC A
 002A C2E1             56             CLR 0xE0.1
 002C FA               57             MOV R2, A                                                         ; 10
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     2
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     2
 
                       58             
 002D 00               59             NOP
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
 007D                 121     next1:
 007D 7B06            122             MOV R3, #0x06                                             ; 1
 007F 00              123             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     3
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     3
 
 0080 00              124             NOP
 0081 020000   F      125             LJMP bit2
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
 00D9 500D            187             JNC next3
 00DB 00              188             NOP
 00DC 00              189             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     4
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     4
 
 00DD 00              190             NOP
 00DE 00              191             NOP
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
 0130 00              253             NOP
 0131 00              254             NOP
 0132 020000   F      255             LJMP bit6
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     5
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     5
 
                      256             
 0135                 257     END2_RX:
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
 0188 00              319             NOP
 0189 00              320             NOP
 018A 00              321             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     6
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     6
 
 018B 00              322             NOP
                      323             ;NOP
@@ -345,7 +345,7 @@ LOC  OBJ            LINE     SOURCE
 018C 22              325             RET
                      326             
                      327             END
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:04:19 PAGE     7
+A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     7
 
 SYMBOL TABLE LISTING
 ------ ----- -------
