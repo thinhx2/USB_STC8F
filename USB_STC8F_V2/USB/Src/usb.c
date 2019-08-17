@@ -13,6 +13,7 @@ volatile unsigned char xdata rx_buffer[16];
 volatile unsigned char data usb_tx_count = 0, usb_rx_count = 0;
 volatile unsigned char data UEPF = 1, UDRF = 1;
 volatile unsigned int xdata USB_TimerTick = 0;		// 20ms
+static unsigned char xdata usb_data[250];
 
 static data struct usb_type{
   volatile unsigned char state;
@@ -25,10 +26,8 @@ static data struct usb_type{
   unsigned char endpoint;
   unsigned char setup_endpoint;
 	
-	unsigned int wLength;
+	volatile unsigned int wLength;
 } usb = {0, 0, 0, 0, 0, 0, 0, 0xFF};
-
-static unsigned char xdata usb_data[250];
 
 extern void usb_send_ack();
 extern void usb_send_nack();
@@ -266,13 +265,12 @@ void usb_calc_crc16(unsigned char length) reentrant {
 
 static unsigned char xdata data_sync;
 
-void USB_SendData(unsigned char *buffer, unsigned char length, unsigned char mode) reentrant {
+void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
 	unsigned int timeStart;
 	
   usb_tx_buffer[0] = 0x80;
 	usb.state = USB_STATE_IN;
-  if(mode)
-    data_sync = USB_PID_DATA1;
+	data_sync = USB_PID_DATA1;
   while (length > 0){
     usb_tx_buffer[1] = data_sync;
     if (data_sync == USB_PID_DATA1)
@@ -381,11 +379,11 @@ void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
 	TR0 = 0;
 }
 
-static void USB_SendNull() reentrant {
+static void USB_SendNull(unsigned char PID_DATA) reentrant {
 	unsigned int timeStart;
 	usb.state = USB_STATE_IN;
   usb_tx_buffer[0] = 0x80;
-  usb_tx_buffer[1] = USB_PID_DATA1;
+  usb_tx_buffer[1] = PID_DATA;
   usb_tx_buffer[2] = 0;
   usb_tx_buffer[3] = 0;
 	usb_tx_count = 4;
@@ -415,26 +413,26 @@ void USB_Process() {
 		usb.event = USB_EVENT_NO;
 		if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
 			if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR){
-				switch (rx_buffer[5]){
+				switch(rx_buffer[5]){
 				case USBDESCR_DEVICE:
-					USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor), 1);
+					USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor));
 					break;
 				case USBDESCR_CONFIG:
 					if(rx_buffer[8] < ARRAY_LENGHT(usb_configuration_descriptor))
-						USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8], 1);
+						USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8]);
 					else
-						USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descriptor), 1);
+						USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descriptor));
 					break;
 				case USBDESCR_STRING:
 					if(rx_buffer[4] == 0)
-						USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_language), 1);
+						USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_language));
 					else if(rx_buffer[4] == 1)
-						USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendor), 1);
+						USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendor));
 					else if(rx_buffer[4] == 2)
-						USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_device), 1);
+						USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_device));
 					else if(rx_buffer[4] == 3)
-						USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_serial), 1);
-					USB_SendNull();
+						USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_serial));
+					USB_SendNull(data_sync);
 					break;
 				default:
 						break;
@@ -445,35 +443,35 @@ void USB_Process() {
 			}
 		}
 		else if(rx_buffer[2] == USBRQ_STD_TO_DEVICE){
-			switch (rx_buffer[3]){
+			switch(rx_buffer[3]){
 				case USBRQ_SET_ADDRESS:
 					if(usb.device_address != 0){
 						//
 					}
-					USB_SendNull();
+					USB_SendNull(USB_PID_DATA1);
 					usb.device_address = rx_buffer[4];
 					break;
 				case (USBRQ_SET_CONFIGURATION):
-					USB_SendNull();
+					USB_SendNull(USB_PID_DATA1);
 					break;
 			}
 		}
 		else if (rx_buffer[2] == USBRQ_STD_FROM_INTERFACE){
-			if (rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
-				USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor), 1);
+			if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
+				USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor));
 		}
-		else if (rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
+		else if(rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
 			if(rx_buffer[3] == 0x0A)
 				usb_send_stall();
 		}
 		else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE)
-			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null), 1);
+			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
 	}
 	if(usb.received){
 		extern void USB_Received(unsigned char *buffer, unsigned char length) reentrant;
 		unsigned int xdata timeStart;
 		usb.ack = 0;
-		USB_SendNull();
+		USB_SendNull(USB_PID_DATA1);
 		timeStart = USB_TimerTick;
 		usb.received = 0;
 		usb.event = USB_EVENT_NO;
