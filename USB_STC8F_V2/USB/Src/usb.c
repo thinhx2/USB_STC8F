@@ -14,6 +14,7 @@ volatile unsigned char data usb_tx_count = 0, usb_rx_count = 0;
 volatile unsigned char data UEPF = 1, UDRF = 1;
 volatile unsigned int xdata USB_TimerTick = 0;		// 20ms
 static unsigned char xdata usb_data[250];
+static unsigned char xdata data_sync;
 
 static data struct usb_type{
   volatile unsigned char state;
@@ -262,8 +263,6 @@ void usb_calc_crc16(unsigned char length) reentrant {
 //  usb_tx_buffer[index + 2] = (unsigned char)crc;
 //  usb_tx_buffer[index + 3] = (unsigned char)(crc >> 8);
 //}
-
-static unsigned char xdata data_sync;
 
 void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
 	unsigned int timeStart;
