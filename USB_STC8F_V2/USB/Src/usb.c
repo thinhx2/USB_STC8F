@@ -423,15 +423,24 @@ void USB_Process() {
 						USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descriptor));
 					break;
 				case USBDESCR_STRING:
-					if(rx_buffer[4] == 0)
+					if(rx_buffer[4] == 0){
 						USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_language));
-					else if(rx_buffer[4] == 1)
+						USB_SendNull(data_sync);
+					}
+					else if(rx_buffer[4] == 1){
 						USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendor));
-					else if(rx_buffer[4] == 2)
+						USB_SendNull(data_sync);
+					}
+					else if(rx_buffer[4] == 2){
 						USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_device));
-					else if(rx_buffer[4] == 3)
+						USB_SendNull(data_sync);
+					}
+					else if(rx_buffer[4] == 3){
 						USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_serial));
-					USB_SendNull(data_sync);
+						USB_SendNull(data_sync);
+					}
+					else
+						USB_SendNull(USB_PID_DATA1);
 					break;
 				default:
 						break;
