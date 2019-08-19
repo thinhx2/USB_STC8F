@@ -9,11 +9,10 @@
 
 volatile unsigned char data usb_rx_buffer[16];
 volatile unsigned char xdata usb_tx_buffer[16];
-volatile unsigned char xdata rx_buffer[16];
 volatile unsigned char data usb_tx_count = 0, usb_rx_count = 0;
 volatile unsigned char data UEPF = 1, UDRF = 1;
 volatile unsigned int xdata USB_TimerTick = 0;		// 20ms
-static unsigned char xdata usb_data[250];
+static volatile unsigned char xdata rx_buffer[250];
 static unsigned char xdata data_sync;
 
 static data struct usb_type{
@@ -85,7 +84,7 @@ static void usb_received_reentrant() reentrant {
 	case USB_PID_DATA0:{
     if(usb.state == USB_STATE_OUT){
 			if(pid_data_old == USB_PID_DATA1){
-				unsigned char xdata *buffer = &usb_data[data_count];
+				unsigned char xdata *buffer = &rx_buffer[data_count];
 				buffer[0] = usb_rx_buffer[2];
 				buffer[1] = usb_rx_buffer[3];
 				buffer[2] = usb_rx_buffer[4];
@@ -134,7 +133,7 @@ static void usb_received_reentrant() reentrant {
 		if (usb.state == USB_STATE_OUT){
 			if(usb_rx_count > 4){
 				if(pid_data_old == USB_PID_DATA0){
-					unsigned char xdata *buffer = &usb_data[data_count];
+					unsigned char xdata *buffer = &rx_buffer[data_count];
 					buffer[0] = usb_rx_buffer[2];
 					buffer[1] = usb_rx_buffer[3];
 					buffer[2] = usb_rx_buffer[4];
@@ -487,7 +486,7 @@ void USB_Process() {
 			if((unsigned int)(USB_TimerTick - timeStart) > 5)
 				usb_exit_process();
 		}
-		USB_Received(usb_data, usb.wLength);
+		USB_Received(rx_buffer, usb.wLength);
 	}
 	usb_exit_process();
 }
