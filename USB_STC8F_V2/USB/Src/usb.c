@@ -7,8 +7,8 @@
 #include "usb.h"
 #include "usb_desc.h"
 
-volatile unsigned char data usb_rx_buffer[16];
-volatile unsigned char xdata usb_tx_buffer[16];
+volatile unsigned char data usb_rx_buffer[12];
+volatile unsigned char xdata usb_tx_buffer[12];
 volatile unsigned char data usb_tx_count = 0, usb_rx_count = 0;
 volatile unsigned char data UEPF = 1, UDRF = 1;
 volatile unsigned int xdata USB_TimerTick = 0;		// 20ms
