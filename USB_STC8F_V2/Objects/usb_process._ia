@@ -1,0 +1,1 @@
+"USB\Src\usb_process.asm" SET (SMALL) DEBUG PRINT(.\Listings\usb_process.lst) OBJECT(.\Objects\usb_process.obj) EP

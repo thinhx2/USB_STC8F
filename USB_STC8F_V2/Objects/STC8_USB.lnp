@@ -8,7 +8,7 @@
 ".\Objects\usb_ack.obj",
 ".\Objects\usb_nack.obj",
 ".\Objects\usb_config.obj",
-".\Objects\usb_exit_process.obj" 
+".\Objects\usb_process.obj" 
 TO ".\Objects\STC8_USB" 
 
 PRINT(".\Listings\STC8_USB.map") ru 

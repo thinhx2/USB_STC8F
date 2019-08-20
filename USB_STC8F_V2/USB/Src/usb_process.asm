@@ -5,16 +5,18 @@
 
 #define PORT		0xB0
 
-NAME	USB_EXIT_PROCESS
+NAME	GOTO_USB_PROCESS
 	
-?PR?usb_exit_process?USB_EXIT_PROCESS SEGMENT CODE
+?PR?goto_usb_process?GOTO_USB_PROCESS SEGMENT CODE
 	EXTRN	DATA (UEPF)
-	PUBLIC usb_exit_process
-	RSEG  ?PR?usb_exit_process?USB_EXIT_PROCESS
+	EXTRN	CODE (USB_Process)
+	PUBLIC goto_usb_process
+	RSEG  ?PR?goto_usb_process?GOTO_USB_PROCESS
 		
-usb_exit_process:
+goto_usb_process:
 	;POP ACC
 	;POP ACC
+	LCALL USB_Process
 	POP 0x07
 	POP 0x06
 	POP 0x05

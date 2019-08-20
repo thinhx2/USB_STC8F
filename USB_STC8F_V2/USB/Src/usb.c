@@ -406,7 +406,6 @@ static void usb_send_stall() {
 }
 
 void USB_Process() {
-	extern void usb_exit_process();
   if(usb.event == USB_EVENT_RECEIVE_SETUP_DATA){
 		usb.event = USB_EVENT_NO;
 		if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
@@ -484,9 +483,8 @@ void USB_Process() {
 		usb.event = USB_EVENT_NO;
 		while(!usb.ack){
 			if((unsigned int)(USB_TimerTick - timeStart) > 5)
-				usb_exit_process();
+				return;
 		}
 		USB_Received(rx_buffer, usb.wLength);
 	}
-	usb_exit_process();
 }

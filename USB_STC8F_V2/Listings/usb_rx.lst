@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     1
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -22,7 +22,7 @@ LOC  OBJ            LINE     SOURCE
                       12     ?PR?usb_rx?USB_RX SEGMENT CODE
                       13             EXTRN   DATA (usb_rx_buffer, usb_rx_count, UEPF, UDRF)
                       14             EXTRN   CODE (usb_received)
-                      15             EXTRN   CODE (USB_Process)
+                      15             EXTRN   CODE (goto_usb_process)
                       16             PUBLIC usb_rx
 ----                  17             RSEG  ?PR?usb_rx?USB_RX
 0000                  18     usb_rx:
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
 0029 33               55             RLC A
 002A C2E1             56             CLR 0xE0.1
 002C FA               57             MOV R2, A                                                         ; 10
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     2
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     2
 
                       58             
 002D 00               59             NOP
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
 007D                 121     next1:
 007D 7B06            122             MOV R3, #0x06                                             ; 1
 007F 00              123             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     3
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     3
 
 0080 00              124             NOP
 0081 020000   F      125             LJMP bit2
@@ -154,7 +154,7 @@ LOC  OBJ            LINE     SOURCE
 009A D0E0            140             POP ACC
 009C D0E0            141             POP ACC
                      142             
-009E 900000   F      143             MOV DPTR, #USB_Process
+009E 900000   F      143             MOV DPTR, #goto_usb_process
 00A1 C082            144             PUSH DPL
 00A3 C083            145             PUSH DPH
 00A5 75D000          146             MOV PSW, #0
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
 00D9 500D            187             JNC next3
 00DB 00              188             NOP
 00DC 00              189             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     4
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     4
 
 00DD 00              190             NOP
 00DE 00              191             NOP
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
 0130 00              253             NOP
 0131 00              254             NOP
 0132 020000   F      255             LJMP bit6
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     5
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     5
 
                      256             
 0135                 257     END2_RX:
@@ -288,7 +288,7 @@ LOC  OBJ            LINE     SOURCE
 014B D0E0            270             POP ACC
 014D D0E0            271             POP ACC
                      272             
-014F 900000   F      273             MOV DPTR, #USB_Process
+014F 900000   F      273             MOV DPTR, #goto_usb_process
 0152 C082            274             PUSH DPL
 0154 C083            275             PUSH DPH
 0156 75D000          276             MOV PSW, #0
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
 0188 00              319             NOP
 0189 00              320             NOP
 018A 00              321             NOP
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     6
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     6
 
 018B 00              322             NOP
                      323             ;NOP
@@ -345,7 +345,7 @@ LOC  OBJ            LINE     SOURCE
 018C 22              325             RET
                      326             
                      327             END
-A51 MACRO ASSEMBLER  USB_RX                                                               08/15/2019 08:28:27 PAGE     7
+A51 MACRO ASSEMBLER  USB_RX                                                               08/20/2019 18:08:58 PAGE     7
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -370,6 +370,7 @@ DPL. . . . . . . .  D ADDR   0082H   A
 END1_RX. . . . . .  C ADDR   0084H   R   SEG=?PR?USB_RX?USB_RX
 END2_RX. . . . . .  C ADDR   0135H   R   SEG=?PR?USB_RX?USB_RX
 GOTO_BIT7. . . . .  C ADDR   0176H   R   SEG=?PR?USB_RX?USB_RX
+GOTO_USB_PROCESS .  C ADDR   -----       EXT
 GOTO_USB_PROCESS1.  C ADDR   0093H   R   SEG=?PR?USB_RX?USB_RX
 GOTO_USB_PROCESS2.  C ADDR   0144H   R   SEG=?PR?USB_RX?USB_RX
 NEXT0. . . . . . .  C ADDR   005DH   R   SEG=?PR?USB_RX?USB_RX
@@ -383,7 +384,6 @@ NEXT7. . . . . . .  C ADDR   003BH   R   SEG=?PR?USB_RX?USB_RX
 PSW. . . . . . . .  D ADDR   00D0H   A   
 UDRF . . . . . . .  D ADDR   -----       EXT
 UEPF . . . . . . .  D ADDR   -----       EXT
-USB_PROCESS. . . .  C ADDR   -----       EXT
 USB_RECEIVED . . .  C ADDR   -----       EXT
 USB_RX . . . . . .  C ADDR   0000H   R   SEG=?PR?USB_RX?USB_RX
 USB_RX_BUFFER. . .  D ADDR   -----       EXT

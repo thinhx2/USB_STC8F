@@ -437,9 +437,9 @@
               <FilePath>.\USB\Src\usb_config.c</FilePath>
             </File>
             <File>
-              <FileName>usb_exit_process.asm</FileName>
+              <FileName>usb_process.asm</FileName>
               <FileType>2</FileType>
-              <FilePath>.\USB\Src\usb_exit_process.asm</FilePath>
+              <FilePath>.\USB\Src\usb_process.asm</FilePath>
             </File>
           </Files>
         </Group>

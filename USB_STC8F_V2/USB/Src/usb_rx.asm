@@ -12,7 +12,7 @@ NAME	USB_RX
 ?PR?usb_rx?USB_RX SEGMENT CODE
 	EXTRN	DATA (usb_rx_buffer, usb_rx_count, UEPF, UDRF)
 	EXTRN	CODE (usb_received)
-	EXTRN	CODE (USB_Process)
+	EXTRN	CODE (goto_usb_process)
 	PUBLIC usb_rx
 	RSEG  ?PR?usb_rx?USB_RX
 usb_rx:
@@ -140,7 +140,7 @@ goto_usb_process1:
 	POP ACC
 	POP ACC
 	
-	MOV DPTR, #USB_Process
+	MOV DPTR, #goto_usb_process
 	PUSH DPL
 	PUSH DPH
 	MOV PSW, #0
@@ -270,7 +270,7 @@ goto_usb_process2:
 	POP ACC
 	POP ACC
 	
-	MOV DPTR, #USB_Process
+	MOV DPTR, #goto_usb_process
 	PUSH DPL
 	PUSH DPH
 	MOV PSW, #0

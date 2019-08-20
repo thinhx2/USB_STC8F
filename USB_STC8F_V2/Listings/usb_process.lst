@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/20/2019 18:07:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\usb_process.obj
+ASSEMBLER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\A51.EXE USB\Src\usb_process.asm SET(SMALL) DEBUG PRINT(.\Listi
+                      ngs\usb_process.lst) OBJECT(.\Objects\usb_process.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     NAME    GOTO_USB_PROCESS
+                       9             
+                      10     ?PR?goto_usb_process?GOTO_USB_PROCESS SEGMENT CODE
+                      11             EXTRN   DATA (UEPF)
+                      12             EXTRN   CODE (USB_Process)
+                      13             PUBLIC goto_usb_process
+----                  14             RSEG  ?PR?goto_usb_process?GOTO_USB_PROCESS
+                      15                     
+0000                  16     goto_usb_process:
+                      17             ;POP ACC
+                      18             ;POP ACC
+0000 120000   F       19             LCALL USB_Process
+0003 D007             20             POP 0x07
+0005 D006             21             POP 0x06
+0007 D005             22             POP 0x05
+0009 D004             23             POP 0x04
+000B D003             24             POP 0x03
+000D D002             25             POP 0x02
+000F D001             26             POP 0x01
+0011 D000             27             POP 0x00
+0013 D0D0             28             POP PSW
+0015 D082             29             POP DPL
+0017 D083             30             POP DPH
+0019 D0F0             31             POP B
+001B D0E0             32             POP ACC
+001D 750001   F       33             MOV UEPF, #1
+0020 22               34             RET
+                      35                     
+                      36             END
+A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/20/2019 18:07:58 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                T Y P E  V A L U E   ATTRIBUTES
+
+?PR?GOTO_USB_PROCESS?GOTO_USB_PROCESS  C SEG    0021H       REL=UNIT
+ACC . . . . . . . . . . . . . . . . .  D ADDR   00E0H   A   
+B . . . . . . . . . . . . . . . . . .  D ADDR   00F0H   A   
+DPH . . . . . . . . . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . . . . . . . . . .  D ADDR   0082H   A   
+GOTO_USB_PROCESS. . . . . . . . . . .  C ADDR   0000H   R   SEG=?PR?GOTO_USB_PROCESS?GOTO_USB_PROCESS
+PSW . . . . . . . . . . . . . . . . .  D ADDR   00D0H   A   
+UEPF. . . . . . . . . . . . . . . . .  D ADDR   -----       EXT
+USB_PROCESS . . . . . . . . . . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
