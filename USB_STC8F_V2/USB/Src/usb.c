@@ -474,7 +474,7 @@ void USB_Process() {
 			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
 	}
 	if(usb.received){
-		extern void USB_Received(unsigned char *buffer, unsigned char length) reentrant;
+		extern void USB_Received(unsigned char endpoint, unsigned char *buffer, unsigned char length) reentrant;
 		unsigned int xdata timeStart;
 		usb.ack = 0;
 		USB_SendNull(USB_PID_DATA1);
@@ -485,6 +485,6 @@ void USB_Process() {
 			if((unsigned int)(USB_TimerTick - timeStart) > 5)
 				return;
 		}
-		USB_Received(rx_buffer, usb.wLength);
+		USB_Received(usb.endpoint, rx_buffer, usb.wLength);
 	}
 }
