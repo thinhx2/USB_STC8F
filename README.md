@@ -4,7 +4,7 @@
 * Project được viết và biên dịch trên KeilC
 # Thiết lập phần cứng cơ bản:
 * Chạy ở tần số 27MHz.
-* D-: P3.0 - D-
+* D-: P3.0
 * D+: P3.1 và P3.2 (P3.1 và P3.2 phải được nối vào nhau)
 * Trở kéo 1.5K từ chân D- lên nguồn cấp (VCC)
 * Nên sử dụng nguồn cấp 3.3V cho MCU để tối giản số lượng linh kiện cần để hỗ trợ thêm.
