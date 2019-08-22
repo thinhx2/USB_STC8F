@@ -20,7 +20,7 @@ static void EXTI_Init(){
 }
 
 void USB_Disconnect(){
-	EA = 0;
+	EX0 = 0;
 	P3 &= 0xFC;
 	GPIO_P3Mode(PIN0 | PIN1, OUTPUT);
 }
