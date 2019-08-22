@@ -3,7 +3,7 @@
 * Chương trình này có thể thực thi ngay trên STC8F2K08S2 và STC8F2K16S2 mà không cần chỉnh sửa gì thêm.
 * Project được viết và biên dịch trên KeilC
 # Thiết lập phần cứng cơ bản:
-* Chạy ở tần số 27MHz.
+* Tần số hoạt động: 27MHz.
 * D-: P3.0
 * D+: P3.1 và P3.2 (P3.1 và P3.2 phải được nối vào nhau)
 * Trở kéo 1.5K từ chân D- lên nguồn cấp (VCC)
