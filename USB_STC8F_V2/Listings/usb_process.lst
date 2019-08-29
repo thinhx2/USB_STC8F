@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/20/2019 18:07:58 PAGE     1
+A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/29/2019 10:29:58 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -44,7 +44,7 @@ LOC  OBJ            LINE     SOURCE
 0020 22               34             RET
                       35                     
                       36             END
-A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/20/2019 18:07:58 PAGE     2
+A51 MACRO ASSEMBLER  USB_PROCESS                                                          08/29/2019 10:29:58 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

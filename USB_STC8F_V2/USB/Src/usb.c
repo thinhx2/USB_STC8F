@@ -78,7 +78,6 @@ static void usb_received_reentrant() reentrant {
 //    }
     else
       usb_send_nack();
-		usb.state = USB_STATE_IN;
     break;
 	}
 	case USB_PID_DATA0:{
@@ -267,7 +266,6 @@ void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
 	unsigned int timeStart;
 	
   usb_tx_buffer[0] = 0x80;
-	usb.state = USB_STATE_IN;
 	data_sync = USB_PID_DATA1;
   while (length > 0){
     usb_tx_buffer[1] = data_sync;
@@ -295,10 +293,6 @@ void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
 		
 		timeStart = USB_TimerTick;
 		while(usb_tx_count){
-			if(usb.state != USB_STATE_IN){
-				usb_tx_count = 0;
-				return;
-			}
 			if((unsigned int)(USB_TimerTick - timeStart) > (100 / TimerTickStep)){
 				usb_tx_count = 0;
 				return;
@@ -379,7 +373,6 @@ void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
 
 static void USB_SendNull(unsigned char PID_DATA) reentrant {
 	unsigned int timeStart;
-	usb.state = USB_STATE_IN;
   usb_tx_buffer[0] = 0x80;
   usb_tx_buffer[1] = PID_DATA;
   usb_tx_buffer[2] = 0;
@@ -388,10 +381,6 @@ static void USB_SendNull(unsigned char PID_DATA) reentrant {
 	
 	timeStart = USB_TimerTick;
 	while(usb_tx_count){
-		if(usb.state != USB_STATE_IN){
-			usb_tx_count = 0;
-			return;
-		}
 		if((unsigned int)(USB_TimerTick - timeStart) > (100 / TimerTickStep)){
 			usb_tx_count = 0;
 			return;
