@@ -118,7 +118,11 @@ static void usb_received_reentrant() reentrant {
 			pid_data_old = USB_PID_DATA0;
 			data_count = 0;
       usb.event = USB_EVENT_RECEIVE_SETUP_DATA;
-			UDRF = 1;
+			if((usb_rx_buffer[2] == 0x21) && (usb_rx_buffer[3] == 0x09))
+				UDRF = 0;
+			else
+				UDRF = 1;
+			//UDRF = 1;
 			usb_send_ack();
 			
 //			wLength = usb_rx_buffer[9];
