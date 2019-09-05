@@ -164,6 +164,7 @@ static void usb_received_reentrant() reentrant {
 			else{
 				usb_tx_count = 0;
 				delay_us(1);
+				usb.state = USB_STATE_IDLE;
 				usb_send_ack();
 			}
 		}
