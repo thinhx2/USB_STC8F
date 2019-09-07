@@ -184,16 +184,7 @@ void usb_received() {
 	usb_received_reentrant();
 }
 
-static const unsigned char code usb_report_null[] = {
-	0x00,
-	0x00,
-	0x00,
-	0x00,
-	0x00,
-	0x00,
-	0x00,
-	0x00,
-};
+static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 static const unsigned char code usb_string_descriptor_language[] = {
   4,
