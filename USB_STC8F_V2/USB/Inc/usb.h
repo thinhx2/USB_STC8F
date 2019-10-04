@@ -9,7 +9,6 @@
 #define TimerTickStep									20
 
 void USB_Init(void);
-void USB_Connect(void);
 void USB_Disconnect(void);
 void USB_SendData(unsigned char *buffer, unsigned char length) reentrant;
 void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant;
