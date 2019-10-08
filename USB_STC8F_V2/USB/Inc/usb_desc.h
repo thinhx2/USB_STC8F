@@ -128,6 +128,12 @@ static const unsigned char code usb_configuration_descriptor[] = {
 //  0x01,																				// POLL INTERVAL (ms)
 };
 
+static const unsigned char code usb_string_descriptor_language[] = {
+  4,
+  USBDESCR_STRING,
+  0x09, 0x04,
+};
+
 static const unsigned char code usb_string_descriptor_vendor[] = {
   22,
   USBDESCR_STRING,

@@ -107,7 +107,7 @@ static void usb_received_reentrant() reentrant {
 			}
 			usb.event = USB_EVENT_NO;
 		}
-		else if(usb.state == USB_STATE_SETUP || usb.state == USB_STATE_IN){
+		else{
 			rx_buffer[2] = usb_rx_buffer[2];
 			rx_buffer[3] = usb_rx_buffer[3];
 			rx_buffer[4] = usb_rx_buffer[4];
@@ -184,12 +184,6 @@ void usb_received() {
 }
 
 static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
-static const unsigned char code usb_string_descriptor_language[] = {
-  4,
-  USBDESCR_STRING,
-  0x09, 0x04,
-};
 
 const unsigned int code table[] = {
 	0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
