@@ -24,10 +24,9 @@ static data struct usb_type{
 	volatile unsigned char ack;
 	
   unsigned char endpoint;
-  unsigned char setup_endpoint;
 	
 	volatile unsigned int wLength;
-} usb = {0, 0, 0, 0, 0, 0, 0, 0xFF};
+} usb = {0, 0, 0, 0, 0, 0, 0xFF};
 
 extern void usb_send_ack();
 extern void usb_send_nack();
