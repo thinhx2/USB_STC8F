@@ -118,9 +118,7 @@ static void usb_received_reentrant() reentrant {
 			pid_data_old = USB_PID_DATA0;
 			data_count = 0;
       usb.event = USB_EVENT_RECEIVE_SETUP_DATA;
-			if((usb_rx_buffer[2] == 0x21) && (usb_rx_buffer[3] == 0x09))
-				UDRF = 0;
-			else
+			if((usb_rx_buffer[2] != 0x21) && (usb_rx_buffer[3] != 0x09))
 				UDRF = 1;
 			//UDRF = 1;
 			usb_send_ack();
@@ -257,7 +255,7 @@ void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
 	usb.state = USB_STATE_IN;
   usb_tx_buffer[0] = 0x80;
 	data_sync = USB_PID_DATA1;
-  while (length > 0){
+  while(length){
     usb_tx_buffer[1] = data_sync;
     if (data_sync == USB_PID_DATA1)
       data_sync = USB_PID_DATA0;
@@ -299,7 +297,7 @@ void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
 	unsigned char timeStart;
   usb_tx_buffer[0] = 0x80;
   data_sync = USB_PID_DATA1;
-  while (length > 0){
+  while(length){
     usb_tx_buffer[1] = data_sync;
     if (data_sync == USB_PID_DATA1)
       data_sync = USB_PID_DATA0;
