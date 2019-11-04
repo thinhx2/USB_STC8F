@@ -126,6 +126,7 @@ next1:
 	
 END1_RX:
 	MOV A, #13
+	CLR C
 	SUBB A, R0
 	MOV usb_rx_count, A
 	LCALL usb_received
@@ -256,6 +257,7 @@ next5:
 	
 END2_RX:
 	MOV A, #13
+	CLR C
 	SUBB A, R0
 	MOV usb_rx_count, A
 	LCALL usb_received
