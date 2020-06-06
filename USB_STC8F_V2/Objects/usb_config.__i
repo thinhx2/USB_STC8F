@@ -1,0 +1,1 @@
+"USB\Src\usb_config.c" OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\User\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\usb_config.lst) TABS (2) OBJECT(.\Objects\usb_config.obj)

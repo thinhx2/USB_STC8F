@@ -1,0 +1,1 @@
+"USB\Src\usb_it.c" OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\User\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\usb_it.lst) TABS (2) OBJECT(.\Objects\usb_it.obj)

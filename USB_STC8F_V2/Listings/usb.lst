@@ -1,10 +1,10 @@
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 1   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 1   
 
 
-C51 COMPILER V9.59.0.0, COMPILATION OF MODULE USB
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE USB
 OBJECT MODULE PLACED IN .\Objects\usb.obj
-COMPILER INVOKED BY: C:\Program Files\Keil C\C51\C51\BIN\C51.EXE USB\Src\usb.c OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\Us
-                    -er\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\usb.lst) TABS(2) OBJECT(.\Objects\usb.obj)
+COMPILER INVOKED BY: C:\Program Files\Keil\C51\C51\BIN\C51.EXE USB\Src\usb.c OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\User
+                    -\Inc;.\Drivers\Inc;.\USB\Inc) DEBUG PRINT(.\Listings\usb.lst) TABS(2) OBJECT(.\Objects\usb.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   3            usb.endpoint |= ((usb_rx_buffer[3] & 0x07) << 1);
   53   3          }
   54   2        }
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 2   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 2   
 
   55   1        else if(usb_rx_buffer[1] == USB_PID_SETUP){
   56   2          //usb.state = USB_STATE_SETUP;
@@ -126,7 +126,7 @@ line level    source
  114   4            rx_buffer[5] = usb_rx_buffer[5];
  115   4            rx_buffer[6] = usb_rx_buffer[6];
  116   4            rx_buffer[7] = usb_rx_buffer[7];
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 3   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 3   
 
  117   4            rx_buffer[8] = usb_rx_buffer[8];
  118   4            pid_data_old = USB_PID_DATA0;
@@ -190,7 +190,7 @@ line level    source
  176   2          break;
  177   2        }
  178   1      }
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 4   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 4   
 
  179          
  180          void usb_received() {
@@ -254,7 +254,7 @@ line level    source
  238          //    crc ^= usb_tx_buffer[index + 2];
  239          //    for (i = 8; i--;){
  240          //      if (crc & 0x01){
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 5   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 5   
 
  241          //        crc >>= 1;
  242          //        crc ^= 0xA001;
@@ -318,7 +318,7 @@ line level    source
  299   1        data_sync = USB_PID_DATA1;
  300   1        while(length){
  301   2          usb_tx_buffer[1] = data_sync;
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 6   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 6   
 
  302   2          if (data_sync == USB_PID_DATA1)
  303   2            data_sync = USB_PID_DATA0;
@@ -375,131 +375,129 @@ line level    source
  354   4              return;
  355   4            }
  356   3          }
- 357   2          
- 358   2        }
- 359   1        TR0 = 0;
- 360   1      }
- 361          
- 362          static void USB_SendNull(unsigned char PID_DATA) reentrant {
- 363   1        unsigned char timeStart;
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 7   
+ 357   2        }
+ 358   1      }
+ 359          
+ 360          static void USB_SendNull(unsigned char PID_DATA) reentrant {
+ 361   1        unsigned char timeStart;
+ 362   1        usb.state = USB_STATE_IN;
+ 363   1        usb_tx_buffer[0] = 0x80;
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 7   
 
- 364   1        usb.state = USB_STATE_IN;
- 365   1        usb_tx_buffer[0] = 0x80;
- 366   1        usb_tx_buffer[1] = PID_DATA;
- 367   1        usb_tx_buffer[2] = 0;
- 368   1        usb_tx_buffer[3] = 0;
- 369   1        usb_tx_count = 4;
- 370   1        
- 371   1        timeStart = USB_TimerTick;
- 372   1        while(usb_tx_count){
- 373   2          if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep))){
- 374   3            usb_tx_count = 0;
- 375   3            return;
- 376   3          }
- 377   2        }
- 378   1      }
- 379          
- 380          static void usb_send_stall() {
- 381   1        usb_tx_buffer[0] = 0x80;
- 382   1        usb_tx_buffer[1] = USB_PID_STALL;
- 383   1        usb_tx_count = 2;
- 384   1      }
- 385          
- 386          void USB_Process() {
- 387   1        if(usb.event == USB_EVENT_RECEIVE_SETUP_DATA){
- 388   2          usb.event = USB_EVENT_NO;
- 389   2          if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
- 390   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR){
- 391   4              switch(rx_buffer[5]){
- 392   5              case USBDESCR_DEVICE:
- 393   5                USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor));
- 394   5                break;
- 395   5              case USBDESCR_CONFIG:
- 396   5                if(rx_buffer[8] < ARRAY_LENGHT(usb_configuration_descriptor))
- 397   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8]);
- 398   5                else
- 399   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descripto
+ 364   1        usb_tx_buffer[1] = PID_DATA;
+ 365   1        usb_tx_buffer[2] = 0;
+ 366   1        usb_tx_buffer[3] = 0;
+ 367   1        usb_tx_count = 4;
+ 368   1        
+ 369   1        timeStart = USB_TimerTick;
+ 370   1        while(usb_tx_count){
+ 371   2          if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep))){
+ 372   3            usb_tx_count = 0;
+ 373   3            return;
+ 374   3          }
+ 375   2        }
+ 376   1      }
+ 377          
+ 378          static void usb_send_stall() {
+ 379   1        usb_tx_buffer[0] = 0x80;
+ 380   1        usb_tx_buffer[1] = USB_PID_STALL;
+ 381   1        usb_tx_count = 2;
+ 382   1      }
+ 383          
+ 384          void USB_Process() {
+ 385   1        if(usb.event == USB_EVENT_RECEIVE_SETUP_DATA){
+ 386   2          usb.event = USB_EVENT_NO;
+ 387   2          if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
+ 388   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR){
+ 389   4              switch(rx_buffer[5]){
+ 390   5              case USBDESCR_DEVICE:
+ 391   5                USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor));
+ 392   5                break;
+ 393   5              case USBDESCR_CONFIG:
+ 394   5                if(rx_buffer[8] < ARRAY_LENGHT(usb_configuration_descriptor))
+ 395   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8]);
+ 396   5                else
+ 397   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descripto
              -r));
- 400   5                break;
- 401   5              case USBDESCR_STRING:
- 402   5                if(rx_buffer[4] == 0){
- 403   6                  USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_lan
+ 398   5                break;
+ 399   5              case USBDESCR_STRING:
+ 400   5                if(rx_buffer[4] == 0){
+ 401   6                  USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_lan
              -guage));
- 404   6                  USB_SendNull(data_sync);
- 405   6                }
- 406   5                else if(rx_buffer[4] == 1){
- 407   6                  USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendo
+ 402   6                  USB_SendNull(data_sync);
+ 403   6                }
+ 404   5                else if(rx_buffer[4] == 1){
+ 405   6                  USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendo
              -r));
- 408   6                  USB_SendNull(data_sync);
- 409   6                }
- 410   5                else if(rx_buffer[4] == 2){
- 411   6                  USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_devic
+ 406   6                  USB_SendNull(data_sync);
+ 407   6                }
+ 408   5                else if(rx_buffer[4] == 2){
+ 409   6                  USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_devic
              -e));
- 412   6                  USB_SendNull(data_sync);
- 413   6                }
- 414   5                else if(rx_buffer[4] == 3){
- 415   6                  USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_seria
+ 410   6                  USB_SendNull(data_sync);
+ 411   6                }
+ 412   5                else if(rx_buffer[4] == 3){
+ 413   6                  USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_seria
              -l));
- 416   6                  USB_SendNull(data_sync);
- 417   6                }
- 418   5                else
- 419   5                  USB_SendNull(USB_PID_DATA1);
- 420   5                break;
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 8   
+ 414   6                  USB_SendNull(data_sync);
+ 415   6                }
+ 416   5                else
+ 417   5                  USB_SendNull(USB_PID_DATA1);
+ 418   5                break;
+ 419   5              default:
+ 420   5                  break;
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 8   
 
- 421   5              default:
- 422   5                  break;
- 423   5              }
- 424   4            }
- 425   3            else if(rx_buffer[3] == USBRQ_GET_STATUS){
- 426   4              usb_send_stall();
- 427   4            }
- 428   3          }
- 429   2          else if(rx_buffer[2] == USBRQ_STD_TO_DEVICE){
- 430   3            switch(rx_buffer[3]){
- 431   4              case USBRQ_SET_ADDRESS:
- 432   4                if(usb.device_address != 0){
- 433   5                  //
- 434   5                }
- 435   4                USB_SendNull(USB_PID_DATA1);
- 436   4                usb.device_address = rx_buffer[4];
- 437   4                break;
- 438   4              case (USBRQ_SET_CONFIGURATION):
- 439   4                USB_SendNull(USB_PID_DATA1);
- 440   4                break;
- 441   4            }
- 442   3          }
- 443   2          else if (rx_buffer[2] == USBRQ_STD_FROM_INTERFACE){
- 444   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
- 445   3              USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor));
- 446   3          }
- 447   2          else if(rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
- 448   3            if(rx_buffer[3] == 0x0A)
- 449   3              usb_send_stall();
- 450   3          }
- 451   2          else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE)
- 452   2            USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
- 453   2        }
- 454   1        if(usb.received){
- 455   2          extern void USB_Received(unsigned char endpoint, unsigned char *buffer, unsigned char length) reentrant;
- 456   2          unsigned char xdata timeStart;
- 457   2          usb.ack = 0;
- 458   2          USB_SendNull(USB_PID_DATA1);
- 459   2          timeStart = USB_TimerTick;
- 460   2          usb.received = 0;
- 461   2          usb.event = USB_EVENT_NO;
- 462   2          while(!usb.ack){
- 463   3            if((unsigned char)(USB_TimerTick - timeStart) > 5)
- 464   3              return;
- 465   3          }
- 466   2          USB_Received(usb.endpoint, rx_buffer, usb.wLength);
- 467   2        }
- 468   1      }
+ 421   5              }
+ 422   4            }
+ 423   3            else if(rx_buffer[3] == USBRQ_GET_STATUS){
+ 424   4              usb_send_stall();
+ 425   4            }
+ 426   3          }
+ 427   2          else if(rx_buffer[2] == USBRQ_STD_TO_DEVICE){
+ 428   3            switch(rx_buffer[3]){
+ 429   4              case USBRQ_SET_ADDRESS:
+ 430   4                if(usb.device_address != 0){
+ 431   5                  //
+ 432   5                }
+ 433   4                USB_SendNull(USB_PID_DATA1);
+ 434   4                usb.device_address = rx_buffer[4];
+ 435   4                break;
+ 436   4              case (USBRQ_SET_CONFIGURATION):
+ 437   4                USB_SendNull(USB_PID_DATA1);
+ 438   4                break;
+ 439   4            }
+ 440   3          }
+ 441   2          else if (rx_buffer[2] == USBRQ_STD_FROM_INTERFACE){
+ 442   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
+ 443   3              USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor));
+ 444   3          }
+ 445   2          else if(rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
+ 446   3            if(rx_buffer[3] == 0x0A)
+ 447   3              usb_send_stall();
+ 448   3          }
+ 449   2          else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE)
+ 450   2            USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
+ 451   2        }
+ 452   1        if(usb.received){
+ 453   2          extern void USB_Received(unsigned char endpoint, unsigned char *buffer, unsigned char length) reentrant;
+ 454   2          unsigned char xdata timeStart;
+ 455   2          usb.ack = 0;
+ 456   2          USB_SendNull(USB_PID_DATA1);
+ 457   2          timeStart = USB_TimerTick;
+ 458   2          usb.received = 0;
+ 459   2          usb.event = USB_EVENT_NO;
+ 460   2          while(!usb.ack){
+ 461   3            if((unsigned char)(USB_TimerTick - timeStart) > 5)
+ 462   3              return;
+ 463   3          }
+ 464   2          USB_Received(usb.endpoint, rx_buffer, usb.wLength);
+ 465   2        }
+ 466   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   2165    ----
+   CODE SIZE        =   2161    ----
    CONSTANT SIZE    =    709    ----
    XDATA SIZE       =    264       1
    PDATA SIZE       =   ----    ----
@@ -510,8 +508,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
-C51 COMPILER V9.59.0.0   USB                                                               11/04/2019 16:52:44 PAGE 9   
-
 END OF MODULE INFORMATION.
 
 

@@ -354,9 +354,7 @@ void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
 				return;
 			}
 		}
-		
   }
-	TR0 = 0;
 }
 
 static void USB_SendNull(unsigned char PID_DATA) reentrant {

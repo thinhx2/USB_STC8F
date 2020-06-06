@@ -1,12 +1,12 @@
-LX51 LINKER/LOCATER V4.66.93.0                                                          11/04/2019  16:52:44  PAGE 1
+LX51 LINKER/LOCATER V4.66.97.0                                                          06/06/2020  10:29:49  PAGE 1
 
 
-LX51 LINKER/LOCATER V4.66.93.0, INVOKED BY:
-C:\PROGRAM FILES\KEIL C\C51\C51\BIN\LX51.EXE .\Objects\main.obj, .\Objects\delay.obj, .\Objects\stc8f_gpio.obj, .\Object
->> s\usb_rx.obj, .\Objects\usb_tx.obj, .\Objects\usb.obj, .\Objects\usb_it.obj, .\Objects\usb_ack.obj, .\Objects\usb_nac
->> k.obj, .\Objects\usb_config.obj, .\Objects\usb_process.obj TO .\Objects\STC8_USB PRINT (.\Listings\STC8_USB.map) RU C
->> LASSES (XDATA (X:0X0-X:0X7FF), HDATA (X:0X0-X:0X7FF), CODE (C:0X0-C:0X3FFF), CONST (C:0X0-C:0X3FFF), ECODE (C:0X0-C:0
->> X3FFF), HCONST (C:0X0-C:0X3FFF))
+LX51 LINKER/LOCATER V4.66.97.0, INVOKED BY:
+C:\PROGRAM FILES\KEIL\C51\C51\BIN\LX51.EXE .\Objects\main.obj, .\Objects\delay.obj, .\Objects\stc8f_gpio.obj, .\Objects\
+>> usb_rx.obj, .\Objects\usb_tx.obj, .\Objects\usb.obj, .\Objects\usb_it.obj, .\Objects\usb_ack.obj, .\Objects\usb_nack.
+>> obj, .\Objects\usb_config.obj, .\Objects\usb_process.obj TO .\Objects\STC8_USB PRINT (.\Listings\STC8_USB.map) RU CLA
+>> SSES (XDATA (X:0X0-X:0X7FF), HDATA (X:0X0-X:0X7FF), CODE (C:0X0-C:0X3FFF), CONST (C:0X0-C:0X3FFF), ECODE (C:0X0-C:0X3
+>> FFF), HCONST (C:0X0-C:0X3FFF))
 
 
 CPU MODE:     8051 MODE
@@ -15,36 +15,36 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\delay.obj (DELAY)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\stc8f_gpio.obj (STC8F_GPIO)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\usb_rx.obj (USB_RX)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   .\Objects\usb_tx.obj (USB_TX)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   .\Objects\usb.obj (USB)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\usb_it.obj (USB_IT)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\usb_ack.obj (USB_SEND_ACK)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   .\Objects\usb_nack.obj (USB_SEND_NACK)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   .\Objects\usb_config.obj (USB_CONFIG)
-         COMMENT TYPE 0: C51 V9.59.0.0
+         COMMENT TYPE 0: C51 V9.60.0.0
   .\Objects\usb_process.obj (GOTO_USB_PROCESS)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\PROGRAM FILES\KEIL\C51\C51\LIB\C51S.LIB (?C_STARTUP)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\PROGRAM FILES\KEIL\C51\C51\LIB\C51S.LIB (?C?CLDPTR)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\PROGRAM FILES\KEIL\C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C_IBP)
+  C:\PROGRAM FILES\KEIL\C51\C51\LIB\C51S.LIB (?C_IBP)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\PROGRAM FILES\KEIL C\C51\C51\LIB\C51S.LIB (?C_INIT)
+  C:\PROGRAM FILES\KEIL\C51\C51\LIB\C51S.LIB (?C_INIT)
          COMMENT TYPE 1: A51 / ASM51 Assembler
 
 
@@ -57,7 +57,7 @@ X:000000H   X:000000H   X:0007FFH             HDATA
 C:000000H   C:000000H   C:003FFFH   000C5CH   CODE
 C:000000H   C:000000H   C:003FFFH   0002C5H   CONST
 C:000000H   C:000000H   C:003FFFH             ECODE
-I:800000H   C:000000H   C:003FFFH             HCONST
+C:000000H   C:000000H   C:003FFFH             HCONST
 I:000000H   I:000000H   I:00007FH   000023H   DATA
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
@@ -67,7 +67,7 @@ MEMORY MAP OF MODULE:  .\Objects\STC8_USB (MAIN)
 
 START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 =========================================================================
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 2
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 2
 
 
 
@@ -115,7 +115,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 * * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
    *DEL*:           00001AH   BYTE   UNIT     CODE           ?PR?_GPIO_P1MODE?STC8F_GPIO
    *DEL*:           00001AH   BYTE   UNIT     CODE           ?PR?_GPIO_P5MODE?STC8F_GPIO
-   *DEL*:           000236H   BYTE   UNIT     CODE           ?PR?_?USB_WRITEBUF?USB
+   *DEL*:           000232H   BYTE   UNIT     CODE           ?PR?_?USB_WRITEBUF?USB
 
 
 
@@ -135,7 +135,7 @@ USB_RX/USB_RX                          ----- -----
 USB_RECEIVED/USB                       ----- -----
   +--> _?USB_RECEIVED_REENTRANT/USB
 
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 3
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 3
 
 
 _?USB_RECEIVED_REENTRANT/USB           ----- -----
@@ -203,7 +203,7 @@ GPIO_INIT/USB_CONFIG                   ----- -----
 
 EXTI_INIT/USB_CONFIG                   ----- -----
 
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 4
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 4
 
 
 ?C_INITSEG                             ----- -----
@@ -271,7 +271,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\STC8_USB (MAIN)
 *SFR* 000000E5H   DATA     BYTE      DPH1
 *SFR* 00000082H   DATA     BYTE      DPL
 *SFR* 000000E4H   DATA     BYTE      DPL1
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 5
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 5
 
 
 *SFR* 000000E3H   DATA     BYTE      DPS
@@ -339,7 +339,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\STC8_USB (MAIN)
 *SFR* 000000A0H.1 DATA     BIT       P21
 *SFR* 000000A0H.2 DATA     BIT       P22
 *SFR* 000000A0H.3 DATA     BIT       P23
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 6
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 6
 
 
 *SFR* 000000A0H.4 DATA     BIT       P24
@@ -407,7 +407,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\STC8_USB (MAIN)
 *SFR* 000000BAH   DATA     BYTE      P_SW2
 *SFR* 000000B8H.5 DATA     BIT       PADC
 *SFR* 000000F2H   DATA     BYTE      PCA_PWM0
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 7
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 7
 
 
 *SFR* 000000F3H   DATA     BYTE      PCA_PWM1
@@ -475,7 +475,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\STC8_USB (MAIN)
 *SFR* 000000D3H   DATA     BYTE      TL4
 *SFR* 00000089H   DATA     BYTE      TMOD
 *SFR* 00000088H.4 DATA     BIT       TR0
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 8
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 8
 
 
 *SFR* 00000088H.6 DATA     BIT       TR1
@@ -543,7 +543,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000D8H.7 SFRSYM    DATA     BIT       CF
       000000FEH   SFRSYM    DATA     BYTE      PWMCR
       000000F9H   SFRSYM    DATA     BYTE      CH
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 9
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 9
 
 
       000000A2H   SFRSYM    DATA     BYTE      P_SW1
@@ -611,7 +611,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000A0H.2 SFRSYM    DATA     BIT       P22
       00000090H.3 SFRSYM    DATA     BIT       P13
       00000080H.4 SFRSYM    DATA     BIT       P04
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 10
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 10
 
 
       00000089H   SFRSYM    DATA     BYTE      TMOD
@@ -679,7 +679,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000A8H.1 SFRSYM    DATA     BIT       ET0
       00000088H.5 SFRSYM    DATA     BIT       TF0
       000000A8H.3 SFRSYM    DATA     BIT       ET1
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 11
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 11
 
 
       00000088H.7 SFRSYM    DATA     BIT       TF1
@@ -747,7 +747,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000A9H   SFRSYM    DATA     BYTE      SADDR
       000000C6H   SFRSYM    DATA     BYTE      IAP_TRIG
       00000097H   SFRSYM    DATA     BYTE      AUXR2
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 12
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 12
 
 
       000000D0H.5 SFRSYM    DATA     BIT       F0
@@ -815,7 +815,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000F9H   SFRSYM    DATA     BYTE      CH
       000000A2H   SFRSYM    DATA     BYTE      P_SW1
       000000BAH   SFRSYM    DATA     BYTE      P_SW2
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 13
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 13
 
 
       000000A8H.5 SFRSYM    DATA     BIT       EADC
@@ -883,7 +883,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       00000080H.4 SFRSYM    DATA     BIT       P04
       00000089H   SFRSYM    DATA     BYTE      TMOD
       00000088H   SFRSYM    DATA     BYTE      TCON
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 14
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 14
 
 
       000000C8H.0 SFRSYM    DATA     BIT       P50
@@ -951,7 +951,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000A8H.3 SFRSYM    DATA     BIT       ET1
       00000088H.7 SFRSYM    DATA     BIT       TF1
       000000B5H   SFRSYM    DATA     BYTE      IP2
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 15
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 15
 
 
       000000FFH   SFRSYM    DATA     BYTE      RSTCFG
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       00000097H   SFRSYM    DATA     BYTE      AUXR2
       000000D0H.5 SFRSYM    DATA     BIT       F0
       000000D0H   SFRSYM    DATA     BYTE      PSW
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 16
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 16
 
 
       000000D8H.0 SFRSYM    DATA     BIT       CCF0
@@ -1087,7 +1087,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000CEH   SFRSYM    DATA     BYTE      SPCTL
       000000D8H.7 SFRSYM    DATA     BIT       CF
       000000FEH   SFRSYM    DATA     BYTE      PWMCR
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 17
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 17
 
 
       000000F9H   SFRSYM    DATA     BYTE      CH
@@ -1155,7 +1155,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000B0H.1 SFRSYM    DATA     BIT       P31
       000000A0H.2 SFRSYM    DATA     BIT       P22
       00000090H.3 SFRSYM    DATA     BIT       P13
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 18
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 18
 
 
       00000080H.4 SFRSYM    DATA     BIT       P04
@@ -1223,7 +1223,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000E0H   SFRSYM    DATA     BYTE      ACC
       000000A8H.1 SFRSYM    DATA     BIT       ET0
       00000088H.5 SFRSYM    DATA     BIT       TF0
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 19
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 19
 
 
       000000A8H.3 SFRSYM    DATA     BIT       ET1
@@ -1291,7 +1291,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000B9H   SFRSYM    DATA     BYTE      SADEN
       000000A9H   SFRSYM    DATA     BYTE      SADDR
       000000C6H   SFRSYM    DATA     BYTE      IAP_TRIG
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 20
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 20
 
 
       00000097H   SFRSYM    DATA     BYTE      AUXR2
@@ -1359,7 +1359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0100042CH   LINE      CODE     ---       #26
       0100042DH   LINE      CODE     ---       #27
       0100042EH   LINE      CODE     ---       #28
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 21
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 21
 
 
       01000430H   LINE      CODE     ---       #30
@@ -1427,7 +1427,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000492H   LINE      CODE     ---       #111
       01000493H   LINE      CODE     ---       #112
       01000495H   LINE      CODE     ---       #113
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 22
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 22
 
 
       01000496H   LINE      CODE     ---       #114
@@ -1495,7 +1495,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       010004FEH   LINE      CODE     ---       #187
       010004FFH   LINE      CODE     ---       #188
       01000501H   LINE      CODE     ---       #189
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 23
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 23
 
 
       01000502H   LINE      CODE     ---       #190
@@ -1563,7 +1563,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0100055FH   LINE      CODE     ---       #262
       01000561H   LINE      CODE     ---       #263
       01000564H   LINE      CODE     ---       #264
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 24
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 24
 
 
       01000566H   LINE      CODE     ---       #265
@@ -1631,7 +1631,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0100037AH   SYMBOL    CODE     ---       BIT5IDLE
       01000393H   SYMBOL    CODE     ---       BIT6
       010003A3H   SYMBOL    CODE     ---       BIT6IDLE
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 25
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 25
 
 
       010003BCH   SYMBOL    CODE     ---       BIT7
@@ -1699,7 +1699,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       010002EDH   LINE      CODE     ---       #75
       010002EEH   LINE      CODE     ---       #76
       010002EFH   LINE      CODE     ---       #78
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 26
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 26
 
 
       010002F0H   LINE      CODE     ---       #79
@@ -1767,7 +1767,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000355H   LINE      CODE     ---       #146
       01000356H   LINE      CODE     ---       #147
       01000357H   LINE      CODE     ---       #148
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 27
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 27
 
 
       01000359H   LINE      CODE     ---       #149
@@ -1835,7 +1835,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       010003BAH   LINE      CODE     ---       #215
       010003BBH   LINE      CODE     ---       #216
       010003BCH   LINE      CODE     ---       #218
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 28
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 28
 
 
       010003BDH   LINE      CODE     ---       #219
@@ -1903,7 +1903,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0100041DH   LINE      CODE     ---       #286
       0100041EH   LINE      CODE     ---       #287
       0100041FH   LINE      CODE     ---       #288
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 29
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 29
 
 
       01000420H   LINE      CODE     ---       #289
@@ -1971,7 +1971,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000E4H   SFRSYM    DATA     BYTE      DPL1
       000000FCH   SFRSYM    DATA     BYTE      CCAP2H
       000000FDH   SFRSYM    DATA     BYTE      CCAP3H
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 30
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 30
 
 
       000000BDH   SFRSYM    DATA     BYTE      ADC_RES
@@ -2039,7 +2039,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000E8H.0 SFRSYM    DATA     BIT       P60
       000000C8H.1 SFRSYM    DATA     BIT       P51
       000000C0H.2 SFRSYM    DATA     BIT       P42
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 31
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 31
 
 
       000000B0H.3 SFRSYM    DATA     BIT       P33
@@ -2107,7 +2107,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000D6H   SFRSYM    DATA     BYTE      TH2
       000000D6H   SFRSYM    DATA     BYTE      T2H
       00000088H.2 SFRSYM    DATA     BIT       IT1
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 32
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 32
 
 
       000000A8H.2 SFRSYM    DATA     BIT       EX1
@@ -2175,7 +2175,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000CE9H   SYMBOL    CONST    ---       usb_string_descriptor_device
       01000C5CH   SYMBOL    CONST    ---       usb_device_descriptor
       02000001H   SYMBOL    XDATA    ---       rx_buffer
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 33
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 33
 
 
       0000000EH   SYMBOL    DATA     ---       usb
@@ -2243,7 +2243,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000080H   LINE      CODE     ---       #66
       01000080H   LINE      CODE     ---       #67
       01000087H   LINE      CODE     ---       #68
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 34
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 34
 
 
       01000093H   LINE      CODE     ---       #70
@@ -2311,7 +2311,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000201H   LINE      CODE     ---       #142
       01000213H   LINE      CODE     ---       #143
       01000225H   LINE      CODE     ---       #144
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 35
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 35
 
 
       01000237H   LINE      CODE     ---       #145
@@ -2379,7 +2379,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       010008EBH   LINE      CODE     ---       #231
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 36
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 36
 
 
       01000710H   BLOCK     CODE     ---       LVL=0
@@ -2444,117 +2444,117 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000A81H   BLOCK     CODE     NEAR LAB  LVL=1
       00000000H   SYMBOL    ISTK     BYTE      timeStart
       ---         BLOCKEND  ---      ---       LVL=1
-      01000A79H   LINE      CODE     ---       #362
-      01000A81H   LINE      CODE     ---       #364
-      01000A84H   LINE      CODE     ---       #365
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 37
+      01000A79H   LINE      CODE     ---       #360
+      01000A81H   LINE      CODE     ---       #362
+      01000A84H   LINE      CODE     ---       #363
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 37
 
 
-      01000A8AH   LINE      CODE     ---       #366
-      01000A90H   LINE      CODE     ---       #367
-      01000A93H   LINE      CODE     ---       #368
-      01000A95H   LINE      CODE     ---       #369
-      01000A98H   LINE      CODE     ---       #371
-      01000A9FH   LINE      CODE     ---       #372
-      01000AA3H   LINE      CODE     ---       #373
-      01000ABAH   LINE      CODE     ---       #374
+      01000A8AH   LINE      CODE     ---       #364
+      01000A90H   LINE      CODE     ---       #365
+      01000A93H   LINE      CODE     ---       #366
+      01000A95H   LINE      CODE     ---       #367
+      01000A98H   LINE      CODE     ---       #369
+      01000A9FH   LINE      CODE     ---       #370
+      01000AA3H   LINE      CODE     ---       #371
+      01000ABAH   LINE      CODE     ---       #372
+      01000ABDH   LINE      CODE     ---       #374
+      01000ABDH   LINE      CODE     ---       #375
       01000ABDH   LINE      CODE     ---       #376
-      01000ABDH   LINE      CODE     ---       #377
-      01000ABDH   LINE      CODE     ---       #378
       ---         BLOCKEND  ---      ---       LVL=0
 
       01000C2DH   BLOCK     CODE     ---       LVL=0
-      01000C2DH   LINE      CODE     ---       #380
-      01000C2DH   LINE      CODE     ---       #381
-      01000C33H   LINE      CODE     ---       #382
-      01000C37H   LINE      CODE     ---       #383
-      01000C3AH   LINE      CODE     ---       #384
+      01000C2DH   LINE      CODE     ---       #378
+      01000C2DH   LINE      CODE     ---       #379
+      01000C33H   LINE      CODE     ---       #380
+      01000C37H   LINE      CODE     ---       #381
+      01000C3AH   LINE      CODE     ---       #382
       ---         BLOCKEND  ---      ---       LVL=0
 
       010005B4H   BLOCK     CODE     ---       LVL=0
       010006CEH   BLOCK     CODE     NEAR LAB  LVL=1
       02000108H   SYMBOL    XDATA    BYTE      timeStart
       ---         BLOCKEND  ---      ---       LVL=1
-      010005B4H   LINE      CODE     ---       #386
-      010005B4H   LINE      CODE     ---       #387
-      010005BDH   LINE      CODE     ---       #388
-      010005BFH   LINE      CODE     ---       #389
-      010005CAH   LINE      CODE     ---       #390
-      010005D3H   LINE      CODE     ---       #391
-      010005E5H   LINE      CODE     ---       #392
-      010005E5H   LINE      CODE     ---       #393
-      010005EDH   LINE      CODE     ---       #394
-      010005F0H   LINE      CODE     ---       #395
-      010005F0H   LINE      CODE     ---       #396
-      010005FDH   LINE      CODE     ---       #397
-      01000601H   LINE      CODE     ---       #399
-      01000609H   LINE      CODE     ---       #400
-      0100060CH   LINE      CODE     ---       #401
-      0100060CH   LINE      CODE     ---       #402
-      01000612H   LINE      CODE     ---       #403
-      0100061AH   LINE      CODE     ---       #404
-      0100061AH   LINE      CODE     ---       #405
-      0100061CH   LINE      CODE     ---       #406
-      01000624H   LINE      CODE     ---       #407
-      0100062CH   LINE      CODE     ---       #408
-      0100062CH   LINE      CODE     ---       #409
-      0100062EH   LINE      CODE     ---       #410
-      01000636H   LINE      CODE     ---       #411
-      0100063EH   LINE      CODE     ---       #412
-      0100063EH   LINE      CODE     ---       #413
-      01000640H   LINE      CODE     ---       #414
-      01000648H   LINE      CODE     ---       #415
-      01000653H   LINE      CODE     ---       #416
-      01000658H   LINE      CODE     ---       #417
-      0100065AH   LINE      CODE     ---       #419
-      0100065CH   LINE      CODE     ---       #420
+      010005B4H   LINE      CODE     ---       #384
+      010005B4H   LINE      CODE     ---       #385
+      010005BDH   LINE      CODE     ---       #386
+      010005BFH   LINE      CODE     ---       #387
+      010005CAH   LINE      CODE     ---       #388
+      010005D3H   LINE      CODE     ---       #389
+      010005E5H   LINE      CODE     ---       #390
+      010005E5H   LINE      CODE     ---       #391
+      010005EDH   LINE      CODE     ---       #392
+      010005F0H   LINE      CODE     ---       #393
+      010005F0H   LINE      CODE     ---       #394
+      010005FDH   LINE      CODE     ---       #395
+      01000601H   LINE      CODE     ---       #397
+      01000609H   LINE      CODE     ---       #398
+      0100060CH   LINE      CODE     ---       #399
+      0100060CH   LINE      CODE     ---       #400
+      01000612H   LINE      CODE     ---       #401
+      0100061AH   LINE      CODE     ---       #402
+      0100061AH   LINE      CODE     ---       #403
+      0100061CH   LINE      CODE     ---       #404
+      01000624H   LINE      CODE     ---       #405
+      0100062CH   LINE      CODE     ---       #406
+      0100062CH   LINE      CODE     ---       #407
+      0100062EH   LINE      CODE     ---       #408
+      01000636H   LINE      CODE     ---       #409
+      0100063EH   LINE      CODE     ---       #410
+      0100063EH   LINE      CODE     ---       #411
+      01000640H   LINE      CODE     ---       #412
+      01000648H   LINE      CODE     ---       #413
+      01000653H   LINE      CODE     ---       #414
+      01000658H   LINE      CODE     ---       #415
+      0100065AH   LINE      CODE     ---       #417
+      0100065CH   LINE      CODE     ---       #418
+      0100065EH   LINE      CODE     ---       #419
+      0100065EH   LINE      CODE     ---       #420
       0100065EH   LINE      CODE     ---       #421
       0100065EH   LINE      CODE     ---       #422
       0100065EH   LINE      CODE     ---       #423
-      0100065EH   LINE      CODE     ---       #424
-      0100065EH   LINE      CODE     ---       #425
+      01000664H   LINE      CODE     ---       #424
+      01000664H   LINE      CODE     ---       #425
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 38
+
+
       01000664H   LINE      CODE     ---       #426
-      01000664H   LINE      CODE     ---       #427
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 38
-
-
-      01000664H   LINE      CODE     ---       #428
-      01000666H   LINE      CODE     ---       #429
-      0100066CH   LINE      CODE     ---       #430
-      01000676H   LINE      CODE     ---       #431
-      01000676H   LINE      CODE     ---       #432
-      01000678H   LINE      CODE     ---       #434
-      01000678H   LINE      CODE     ---       #435
-      0100067DH   LINE      CODE     ---       #436
-      01000683H   LINE      CODE     ---       #437
-      01000685H   LINE      CODE     ---       #438
-      01000685H   LINE      CODE     ---       #439
-      0100068AH   LINE      CODE     ---       #440
+      01000666H   LINE      CODE     ---       #427
+      0100066CH   LINE      CODE     ---       #428
+      01000676H   LINE      CODE     ---       #429
+      01000676H   LINE      CODE     ---       #430
+      01000678H   LINE      CODE     ---       #432
+      01000678H   LINE      CODE     ---       #433
+      0100067DH   LINE      CODE     ---       #434
+      01000683H   LINE      CODE     ---       #435
+      01000685H   LINE      CODE     ---       #436
+      01000685H   LINE      CODE     ---       #437
+      0100068AH   LINE      CODE     ---       #438
+      0100068CH   LINE      CODE     ---       #439
+      0100068CH   LINE      CODE     ---       #440
       0100068CH   LINE      CODE     ---       #441
-      0100068CH   LINE      CODE     ---       #442
-      0100068CH   LINE      CODE     ---       #443
-      01000694H   LINE      CODE     ---       #444
-      0100069AH   LINE      CODE     ---       #445
-      010006A2H   LINE      CODE     ---       #446
-      010006A4H   LINE      CODE     ---       #447
-      010006ACH   LINE      CODE     ---       #448
-      010006B2H   LINE      CODE     ---       #449
-      010006B5H   LINE      CODE     ---       #450
-      010006B7H   LINE      CODE     ---       #451
-      010006BFH   LINE      CODE     ---       #452
-      010006CAH   LINE      CODE     ---       #453
-      010006CAH   LINE      CODE     ---       #454
-      010006CEH   LINE      CODE     ---       #457
-      010006D1H   LINE      CODE     ---       #458
-      010006D6H   LINE      CODE     ---       #459
-      010006DEH   LINE      CODE     ---       #460
-      010006E1H   LINE      CODE     ---       #461
-      010006E3H   LINE      CODE     ---       #462
-      010006E7H   LINE      CODE     ---       #463
-      010006FCH   LINE      CODE     ---       #465
-      010006FCH   LINE      CODE     ---       #466
-      0100070FH   LINE      CODE     ---       #467
-      0100070FH   LINE      CODE     ---       #468
+      01000694H   LINE      CODE     ---       #442
+      0100069AH   LINE      CODE     ---       #443
+      010006A2H   LINE      CODE     ---       #444
+      010006A4H   LINE      CODE     ---       #445
+      010006ACH   LINE      CODE     ---       #446
+      010006B2H   LINE      CODE     ---       #447
+      010006B5H   LINE      CODE     ---       #448
+      010006B7H   LINE      CODE     ---       #449
+      010006BFH   LINE      CODE     ---       #450
+      010006CAH   LINE      CODE     ---       #451
+      010006CAH   LINE      CODE     ---       #452
+      010006CEH   LINE      CODE     ---       #455
+      010006D1H   LINE      CODE     ---       #456
+      010006D6H   LINE      CODE     ---       #457
+      010006DEH   LINE      CODE     ---       #458
+      010006E1H   LINE      CODE     ---       #459
+      010006E3H   LINE      CODE     ---       #460
+      010006E7H   LINE      CODE     ---       #461
+      010006FCH   LINE      CODE     ---       #463
+      010006FCH   LINE      CODE     ---       #464
+      0100070FH   LINE      CODE     ---       #465
+      0100070FH   LINE      CODE     ---       #466
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       USB_IT
@@ -2583,7 +2583,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000F6H   SFRSYM    DATA     BYTE      PWMIF
       000000C6H   SFRSYM    DATA     BYTE      ISP_TRIG
       000000E2H   SFRSYM    DATA     BYTE      P7M0
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 39
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 39
 
 
       000000CBH   SFRSYM    DATA     BYTE      P6M1
@@ -2651,7 +2651,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000C3H   SFRSYM    DATA     BYTE      ISP_ADDRH
       000000A0H.0 SFRSYM    DATA     BIT       P20
       00000090H.1 SFRSYM    DATA     BIT       P11
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 40
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 40
 
 
       00000080H.2 SFRSYM    DATA     BIT       P02
@@ -2719,7 +2719,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000E8H.7 SFRSYM    DATA     BIT       P67
       00000088H.1 SFRSYM    DATA     BIT       IE0
       000000A1H   SFRSYM    DATA     BYTE      BUS_SPEED
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 41
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 41
 
 
       000000F8H.7 SFRSYM    DATA     BIT       P77
@@ -2787,7 +2787,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0000009BH   SFRSYM    DATA     BYTE      S2BUF
       000000ADH   SFRSYM    DATA     BYTE      S3BUF
       00000085H   SFRSYM    DATA     BYTE      S4BUF
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 42
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 42
 
 
       00000098H.4 SFRSYM    DATA     BIT       REN
@@ -2855,7 +2855,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       01000A51H   LINE      CODE     ---       #60
       01000A54H   LINE      CODE     ---       #61
       01000A57H   LINE      CODE     ---       #62
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 43
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 43
 
 
       01000A58H   LINE      CODE     ---       #63
@@ -2923,7 +2923,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       010009DAH   LINE      CODE     ---       #60
       010009DDH   LINE      CODE     ---       #66
       010009E0H   LINE      CODE     ---       #63
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 44
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 44
 
 
       010009E3H   LINE      CODE     ---       #68
@@ -2991,7 +2991,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000E5H   SFRSYM    DATA     BYTE      DPH1
       000000E9H   SFRSYM    DATA     BYTE      CL
       000000C5H   SFRSYM    DATA     BYTE      IAP_CMD
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 45
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 45
 
 
       000000FAH   SFRSYM    DATA     BYTE      CCAP0H
@@ -3059,7 +3059,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000B0H.2 SFRSYM    DATA     BIT       P32
       000000A0H.3 SFRSYM    DATA     BIT       P23
       00000090H.4 SFRSYM    DATA     BIT       P14
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 46
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 46
 
 
       00000080H.5 SFRSYM    DATA     BIT       P05
@@ -3127,7 +3127,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       0000008CH   SFRSYM    DATA     BYTE      TH0
       0000008DH   SFRSYM    DATA     BYTE      TH1
       00000088H.0 SFRSYM    DATA     BIT       IT0
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 47
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 47
 
 
       000000A8H.0 SFRSYM    DATA     BIT       EX0
@@ -3195,7 +3195,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
       000000CFH   SFRSYM    DATA     BYTE      SPDAT
       00000094H   SFRSYM    DATA     BYTE      P0M0
       01000C1EH   SYMBOL    CODE     ---       GPIO_Init
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 48
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 48
 
 
       01000C3BH   SYMBOL    CODE     ---       EXTI_Init
@@ -3263,7 +3263,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\STC8_USB (MAIN)
 
       ---         MODULE    ---      ---       ?C?CLDOPTR
       01000ADBH   PUBLIC    CODE     ---       ?C?CLDOPTR
-LX51 LINKER/LOCATER V4.66.93.0                                                        11/04/2019  16:52:44  PAGE 49
+LX51 LINKER/LOCATER V4.66.97.0                                                        06/06/2020  10:29:49  PAGE 49
 
 
 
