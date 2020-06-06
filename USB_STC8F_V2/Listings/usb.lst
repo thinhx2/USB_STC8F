@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 1   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE USB
@@ -62,7 +62,7 @@ line level    source
   52   3            usb.endpoint |= ((usb_rx_buffer[3] & 0x07) << 1);
   53   3          }
   54   2        }
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 2   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 2   
 
   55   1        else if(usb_rx_buffer[1] == USB_PID_SETUP){
   56   2          //usb.state = USB_STATE_SETUP;
@@ -126,7 +126,7 @@ line level    source
  114   4            rx_buffer[5] = usb_rx_buffer[5];
  115   4            rx_buffer[6] = usb_rx_buffer[6];
  116   4            rx_buffer[7] = usb_rx_buffer[7];
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 3   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 3   
 
  117   4            rx_buffer[8] = usb_rx_buffer[8];
  118   4            pid_data_old = USB_PID_DATA0;
@@ -190,294 +190,294 @@ line level    source
  176   2          break;
  177   2        }
  178   1      }
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 4   
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 4   
 
  179          
  180          void usb_received() {
  181   1        usb_received_reentrant();
  182   1      }
  183          
- 184          static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
- 185          
- 186          const unsigned int code table[] = {
- 187            0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
- 188            0xC601, 0x06C0, 0x0780, 0xC741, 0x0500, 0xC5C1, 0xC481, 0x0440,
- 189            0xCC01, 0x0CC0, 0x0D80, 0xCD41, 0x0F00, 0xCFC1, 0xCE81, 0x0E40,
- 190            0x0A00, 0xCAC1, 0xCB81, 0x0B40, 0xC901, 0x09C0, 0x0880, 0xC841,
- 191            0xD801, 0x18C0, 0x1980, 0xD941, 0x1B00, 0xDBC1, 0xDA81, 0x1A40,
- 192            0x1E00, 0xDEC1, 0xDF81, 0x1F40, 0xDD01, 0x1DC0, 0x1C80, 0xDC41,
- 193            0x1400, 0xD4C1, 0xD581, 0x1540, 0xD701, 0x17C0, 0x1680, 0xD641,
- 194            0xD201, 0x12C0, 0x1380, 0xD341, 0x1100, 0xD1C1, 0xD081, 0x1040,
- 195            0xF001, 0x30C0, 0x3180, 0xF141, 0x3300, 0xF3C1, 0xF281, 0x3240,
- 196            0x3600, 0xF6C1, 0xF781, 0x3740, 0xF501, 0x35C0, 0x3480, 0xF441,
- 197            0x3C00, 0xFCC1, 0xFD81, 0x3D40, 0xFF01, 0x3FC0, 0x3E80, 0xFE41,
- 198            0xFA01, 0x3AC0, 0x3B80, 0xFB41, 0x3900, 0xF9C1, 0xF881, 0x3840,
- 199            0x2800, 0xE8C1, 0xE981, 0x2940, 0xEB01, 0x2BC0, 0x2A80, 0xEA41,
- 200            0xEE01, 0x2EC0, 0x2F80, 0xEF41, 0x2D00, 0xEDC1, 0xEC81, 0x2C40,
- 201            0xE401, 0x24C0, 0x2580, 0xE541, 0x2700, 0xE7C1, 0xE681, 0x2640,
- 202            0x2200, 0xE2C1, 0xE381, 0x2340, 0xE101, 0x21C0, 0x2080, 0xE041,
- 203            0xA001, 0x60C0, 0x6180, 0xA141, 0x6300, 0xA3C1, 0xA281, 0x6240,
- 204            0x6600, 0xA6C1, 0xA781, 0x6740, 0xA501, 0x65C0, 0x6480, 0xA441,
- 205            0x6C00, 0xACC1, 0xAD81, 0x6D40, 0xAF01, 0x6FC0, 0x6E80, 0xAE41,
- 206            0xAA01, 0x6AC0, 0x6B80, 0xAB41, 0x6900, 0xA9C1, 0xA881, 0x6840,
- 207            0x7800, 0xB8C1, 0xB981, 0x7940, 0xBB01, 0x7BC0, 0x7A80, 0xBA41,
- 208            0xBE01, 0x7EC0, 0x7F80, 0xBF41, 0x7D00, 0xBDC1, 0xBC81, 0x7C40,
- 209            0xB401, 0x74C0, 0x7580, 0xB541, 0x7700, 0xB7C1, 0xB681, 0x7640,
- 210            0x7200, 0xB2C1, 0xB381, 0x7340, 0xB101, 0x71C0, 0x7080, 0xB041,
- 211            0x5000, 0x90C1, 0x9181, 0x5140, 0x9301, 0x53C0, 0x5280, 0x9241,
- 212            0x9601, 0x56C0, 0x5780, 0x9741, 0x5500, 0x95C1, 0x9481, 0x5440,
- 213            0x9C01, 0x5CC0, 0x5D80, 0x9D41, 0x5F00, 0x9FC1, 0x9E81, 0x5E40,
- 214            0x5A00, 0x9AC1, 0x9B81, 0x5B40, 0x9901, 0x59C0, 0x5880, 0x9841,
- 215            0x8801, 0x48C0, 0x4980, 0x8941, 0x4B00, 0x8BC1, 0x8A81, 0x4A40,
- 216            0x4E00, 0x8EC1, 0x8F81, 0x4F40, 0x8D01, 0x4DC0, 0x4C80, 0x8C41,
- 217            0x4400, 0x84C1, 0x8581, 0x4540, 0x8701, 0x47C0, 0x4680, 0x8641,
- 218            0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040
- 219          };
- 220          
- 221          void usb_calc_crc16(unsigned char length) reentrant {
- 222   1        unsigned int crc = 0xFFFF;
- 223   1        unsigned char i = 2;
- 224   1        while(length--){
- 225   2          crc = table[(crc ^ usb_tx_buffer[i]) & 0xFF] ^ (crc >> 8);
- 226   2          i++;
- 227   2        }
- 228   1        crc = ~crc;
- 229   1        usb_tx_buffer[i] = crc;
- 230   1        usb_tx_buffer[i + 1] = crc >> 8;
- 231   1      }
- 232          
- 233          //static void usb_calc_crc16(unsigned char length){
- 234          //  unsigned int data crc = 0xFFFF;
- 235          //  unsigned char data index;
- 236          //  for(index = 0; index < length; index++){
- 237          //    unsigned char data i;
- 238          //    crc ^= usb_tx_buffer[index + 2];
- 239          //    for (i = 8; i--;){
- 240          //      if (crc & 0x01){
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 5   
+ 184          const unsigned int code table[] = {
+ 185            0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
+ 186            0xC601, 0x06C0, 0x0780, 0xC741, 0x0500, 0xC5C1, 0xC481, 0x0440,
+ 187            0xCC01, 0x0CC0, 0x0D80, 0xCD41, 0x0F00, 0xCFC1, 0xCE81, 0x0E40,
+ 188            0x0A00, 0xCAC1, 0xCB81, 0x0B40, 0xC901, 0x09C0, 0x0880, 0xC841,
+ 189            0xD801, 0x18C0, 0x1980, 0xD941, 0x1B00, 0xDBC1, 0xDA81, 0x1A40,
+ 190            0x1E00, 0xDEC1, 0xDF81, 0x1F40, 0xDD01, 0x1DC0, 0x1C80, 0xDC41,
+ 191            0x1400, 0xD4C1, 0xD581, 0x1540, 0xD701, 0x17C0, 0x1680, 0xD641,
+ 192            0xD201, 0x12C0, 0x1380, 0xD341, 0x1100, 0xD1C1, 0xD081, 0x1040,
+ 193            0xF001, 0x30C0, 0x3180, 0xF141, 0x3300, 0xF3C1, 0xF281, 0x3240,
+ 194            0x3600, 0xF6C1, 0xF781, 0x3740, 0xF501, 0x35C0, 0x3480, 0xF441,
+ 195            0x3C00, 0xFCC1, 0xFD81, 0x3D40, 0xFF01, 0x3FC0, 0x3E80, 0xFE41,
+ 196            0xFA01, 0x3AC0, 0x3B80, 0xFB41, 0x3900, 0xF9C1, 0xF881, 0x3840,
+ 197            0x2800, 0xE8C1, 0xE981, 0x2940, 0xEB01, 0x2BC0, 0x2A80, 0xEA41,
+ 198            0xEE01, 0x2EC0, 0x2F80, 0xEF41, 0x2D00, 0xEDC1, 0xEC81, 0x2C40,
+ 199            0xE401, 0x24C0, 0x2580, 0xE541, 0x2700, 0xE7C1, 0xE681, 0x2640,
+ 200            0x2200, 0xE2C1, 0xE381, 0x2340, 0xE101, 0x21C0, 0x2080, 0xE041,
+ 201            0xA001, 0x60C0, 0x6180, 0xA141, 0x6300, 0xA3C1, 0xA281, 0x6240,
+ 202            0x6600, 0xA6C1, 0xA781, 0x6740, 0xA501, 0x65C0, 0x6480, 0xA441,
+ 203            0x6C00, 0xACC1, 0xAD81, 0x6D40, 0xAF01, 0x6FC0, 0x6E80, 0xAE41,
+ 204            0xAA01, 0x6AC0, 0x6B80, 0xAB41, 0x6900, 0xA9C1, 0xA881, 0x6840,
+ 205            0x7800, 0xB8C1, 0xB981, 0x7940, 0xBB01, 0x7BC0, 0x7A80, 0xBA41,
+ 206            0xBE01, 0x7EC0, 0x7F80, 0xBF41, 0x7D00, 0xBDC1, 0xBC81, 0x7C40,
+ 207            0xB401, 0x74C0, 0x7580, 0xB541, 0x7700, 0xB7C1, 0xB681, 0x7640,
+ 208            0x7200, 0xB2C1, 0xB381, 0x7340, 0xB101, 0x71C0, 0x7080, 0xB041,
+ 209            0x5000, 0x90C1, 0x9181, 0x5140, 0x9301, 0x53C0, 0x5280, 0x9241,
+ 210            0x9601, 0x56C0, 0x5780, 0x9741, 0x5500, 0x95C1, 0x9481, 0x5440,
+ 211            0x9C01, 0x5CC0, 0x5D80, 0x9D41, 0x5F00, 0x9FC1, 0x9E81, 0x5E40,
+ 212            0x5A00, 0x9AC1, 0x9B81, 0x5B40, 0x9901, 0x59C0, 0x5880, 0x9841,
+ 213            0x8801, 0x48C0, 0x4980, 0x8941, 0x4B00, 0x8BC1, 0x8A81, 0x4A40,
+ 214            0x4E00, 0x8EC1, 0x8F81, 0x4F40, 0x8D01, 0x4DC0, 0x4C80, 0x8C41,
+ 215            0x4400, 0x84C1, 0x8581, 0x4540, 0x8701, 0x47C0, 0x4680, 0x8641,
+ 216            0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040
+ 217          };
+ 218          
+ 219          void usb_calc_crc16(unsigned char length) reentrant {
+ 220   1        unsigned int crc = 0xFFFF;
+ 221   1        unsigned char i = 2;
+ 222   1        while(length--){
+ 223   2          crc = table[(crc ^ usb_tx_buffer[i]) & 0xFF] ^ (crc >> 8);
+ 224   2          i++;
+ 225   2        }
+ 226   1        crc = ~crc;
+ 227   1        usb_tx_buffer[i] = crc;
+ 228   1        usb_tx_buffer[i + 1] = crc >> 8;
+ 229   1      }
+ 230          
+ 231          //static void usb_calc_crc16(unsigned char length){
+ 232          //  unsigned int data crc = 0xFFFF;
+ 233          //  unsigned char data index;
+ 234          //  for(index = 0; index < length; index++){
+ 235          //    unsigned char data i;
+ 236          //    crc ^= usb_tx_buffer[index + 2];
+ 237          //    for (i = 8; i--;){
+ 238          //      if (crc & 0x01){
+ 239          //        crc >>= 1;
+ 240          //        crc ^= 0xA001;
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 5   
 
- 241          //        crc >>= 1;
- 242          //        crc ^= 0xA001;
- 243          //      }
- 244          //      else
- 245          //        crc >>= 1;
- 246          //    }
- 247          //  }
- 248          //  crc = ~crc;
- 249          //  usb_tx_buffer[index + 2] = (unsigned char)crc;
- 250          //  usb_tx_buffer[index + 3] = (unsigned char)(crc >> 8);
- 251          //}
- 252          
- 253          void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
- 254   1        unsigned char timeStart;
- 255   1        usb.state = USB_STATE_IN;
- 256   1        usb_tx_buffer[0] = 0x80;
- 257   1        data_sync = USB_PID_DATA1;
- 258   1        while(length){
- 259   2          usb_tx_buffer[1] = data_sync;
- 260   2          if (data_sync == USB_PID_DATA1)
- 261   2            data_sync = USB_PID_DATA0;
- 262   2          else
- 263   2            data_sync = USB_PID_DATA1;
- 264   2          if(length >= 8){
- 265   3            unsigned char i;
- 266   3            for(i = 0; i < 8; i++)
- 267   3              usb_tx_buffer[i + 2] = buffer[i];
- 268   3            buffer += 8;
- 269   3            usb_calc_crc16(8);
- 270   3            usb_tx_count = 12;
- 271   3            length -= 8;
- 272   3          }
- 273   2          else{
- 274   3            unsigned char i;
- 275   3            for(i = 2; i < (length + 2); i++)
- 276   3              usb_tx_buffer[i] = *buffer++;
- 277   3            usb_calc_crc16(length);
- 278   3            usb_tx_count = length + 4;
- 279   3            length = 0;
- 280   3          }
- 281   2          
- 282   2          timeStart = USB_TimerTick;
- 283   2          while(usb_tx_count){
- 284   3            if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep)))
+ 241          //      }
+ 242          //      else
+ 243          //        crc >>= 1;
+ 244          //    }
+ 245          //  }
+ 246          //  crc = ~crc;
+ 247          //  usb_tx_buffer[index + 2] = (unsigned char)crc;
+ 248          //  usb_tx_buffer[index + 3] = (unsigned char)(crc >> 8);
+ 249          //}
+ 250          
+ 251          void USB_SendData(unsigned char *buffer, unsigned char length) reentrant {
+ 252   1        unsigned char timeStart;
+ 253   1        usb.state = USB_STATE_IN;
+ 254   1        usb_tx_buffer[0] = 0x80;
+ 255   1        data_sync = USB_PID_DATA1;
+ 256   1        while(length){
+ 257   2          usb_tx_buffer[1] = data_sync;
+ 258   2          if (data_sync == USB_PID_DATA1)
+ 259   2            data_sync = USB_PID_DATA0;
+ 260   2          else
+ 261   2            data_sync = USB_PID_DATA1;
+ 262   2          if(length >= 8){
+ 263   3            unsigned char i;
+ 264   3            for(i = 0; i < 8; i++)
+ 265   3              usb_tx_buffer[i + 2] = buffer[i];
+ 266   3            buffer += 8;
+ 267   3            usb_calc_crc16(8);
+ 268   3            usb_tx_count = 12;
+ 269   3            length -= 8;
+ 270   3          }
+ 271   2          else{
+ 272   3            unsigned char i;
+ 273   3            for(i = 2; i < (length + 2); i++)
+ 274   3              usb_tx_buffer[i] = *buffer++;
+ 275   3            usb_calc_crc16(length);
+ 276   3            usb_tx_count = length + 4;
+ 277   3            length = 0;
+ 278   3          }
+ 279   2          
+ 280   2          timeStart = USB_TimerTick;
+ 281   2          while(usb_tx_count){
+ 282   3            if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep)))
              -{
- 285   4              usb_tx_count = 0;
- 286   4              return;
- 287   4            }
- 288   3          }
- 289   2          
- 290   2      //    usb.event = USB_EVENT_READY_DATA_IN;
- 291   2      //    while(usb.event != USB_EVENT_WAIT_DATA_IN);
- 292   2        }
- 293   1      }
- 294          
- 295          void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
- 296   1        unsigned char start = 0;
- 297   1        unsigned char timeStart;
- 298   1        usb_tx_buffer[0] = 0x80;
- 299   1        data_sync = USB_PID_DATA1;
- 300   1        while(length){
- 301   2          usb_tx_buffer[1] = data_sync;
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 6   
+ 283   4              usb_tx_count = 0;
+ 284   4              return;
+ 285   4            }
+ 286   3          }
+ 287   2          
+ 288   2      //    usb.event = USB_EVENT_READY_DATA_IN;
+ 289   2      //    while(usb.event != USB_EVENT_WAIT_DATA_IN);
+ 290   2        }
+ 291   1      }
+ 292          
+ 293          void USB_WriteBuf(unsigned char *buffer, unsigned char length) reentrant {
+ 294   1        unsigned char start = 0;
+ 295   1        unsigned char timeStart;
+ 296   1        usb_tx_buffer[0] = 0x80;
+ 297   1        data_sync = USB_PID_DATA1;
+ 298   1        while(length){
+ 299   2          usb_tx_buffer[1] = data_sync;
+ 300   2          if (data_sync == USB_PID_DATA1)
+ 301   2            data_sync = USB_PID_DATA0;
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 6   
 
- 302   2          if (data_sync == USB_PID_DATA1)
- 303   2            data_sync = USB_PID_DATA0;
- 304   2          else
- 305   2            data_sync = USB_PID_DATA1;
- 306   2          
- 307   2          if(!start){
- 308   3            start = 1;
- 309   3            usb_tx_buffer[2] = length;
- 310   3            
- 311   3            if((length % 8) == 7)
- 312   3              length++;
- 313   3            
- 314   3            if(length >= 7){
- 315   4              unsigned char i;
- 316   4              for(i = 0; i < 7; i++)
- 317   4                usb_tx_buffer[i + 3] = buffer[i];
- 318   4              buffer += 7;
- 319   4              usb_calc_crc16(8);
- 320   4              usb_tx_count = 12;
- 321   4              length -= 7;
- 322   4            }
- 323   3            else{
- 324   4              unsigned char i;
- 325   4              for(i = 3; i < (length + 3); i++)
- 326   4                usb_tx_buffer[i] = *buffer++;
- 327   4              usb_calc_crc16(length + 1);
- 328   4              usb_tx_count = length + 5;
- 329   4              length = 0;
- 330   4            }
- 331   3          }
- 332   2          else if(length >= 8){
- 333   3            unsigned char i;
- 334   3            for(i = 0; i < 8; i++)
- 335   3              usb_tx_buffer[i + 2] = buffer[i];
- 336   3            buffer += 8;
- 337   3            usb_calc_crc16(8);
- 338   3            usb_tx_count = 12;
- 339   3            length -= 8;
- 340   3          }
- 341   2          else{
- 342   3            unsigned char data i;
- 343   3            for(i = 2; i < (length + 2); i++)
- 344   3              usb_tx_buffer[i] = *buffer++;
- 345   3            usb_calc_crc16(length);
- 346   3            usb_tx_count = length + 4;
- 347   3            length = 0;
- 348   3          }
- 349   2          
- 350   2          timeStart = USB_TimerTick;
- 351   2          while(usb_tx_count){
- 352   3            if((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep)){
- 353   4              usb_tx_count = 0;
- 354   4              return;
- 355   4            }
- 356   3          }
- 357   2        }
- 358   1      }
- 359          
- 360          static void USB_SendNull(unsigned char PID_DATA) reentrant {
- 361   1        unsigned char timeStart;
- 362   1        usb.state = USB_STATE_IN;
- 363   1        usb_tx_buffer[0] = 0x80;
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 7   
+ 302   2          else
+ 303   2            data_sync = USB_PID_DATA1;
+ 304   2          
+ 305   2          if(!start){
+ 306   3            start = 1;
+ 307   3            usb_tx_buffer[2] = length;
+ 308   3            
+ 309   3            if((length % 8) == 7)
+ 310   3              length++;
+ 311   3            
+ 312   3            if(length >= 7){
+ 313   4              unsigned char i;
+ 314   4              for(i = 0; i < 7; i++)
+ 315   4                usb_tx_buffer[i + 3] = buffer[i];
+ 316   4              buffer += 7;
+ 317   4              usb_calc_crc16(8);
+ 318   4              usb_tx_count = 12;
+ 319   4              length -= 7;
+ 320   4            }
+ 321   3            else{
+ 322   4              unsigned char i;
+ 323   4              for(i = 3; i < (length + 3); i++)
+ 324   4                usb_tx_buffer[i] = *buffer++;
+ 325   4              usb_calc_crc16(length + 1);
+ 326   4              usb_tx_count = length + 5;
+ 327   4              length = 0;
+ 328   4            }
+ 329   3          }
+ 330   2          else if(length >= 8){
+ 331   3            unsigned char i;
+ 332   3            for(i = 0; i < 8; i++)
+ 333   3              usb_tx_buffer[i + 2] = buffer[i];
+ 334   3            buffer += 8;
+ 335   3            usb_calc_crc16(8);
+ 336   3            usb_tx_count = 12;
+ 337   3            length -= 8;
+ 338   3          }
+ 339   2          else{
+ 340   3            unsigned char data i;
+ 341   3            for(i = 2; i < (length + 2); i++)
+ 342   3              usb_tx_buffer[i] = *buffer++;
+ 343   3            usb_calc_crc16(length);
+ 344   3            usb_tx_count = length + 4;
+ 345   3            length = 0;
+ 346   3          }
+ 347   2          
+ 348   2          timeStart = USB_TimerTick;
+ 349   2          while(usb_tx_count){
+ 350   3            if((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep)){
+ 351   4              usb_tx_count = 0;
+ 352   4              return;
+ 353   4            }
+ 354   3          }
+ 355   2        }
+ 356   1      }
+ 357          
+ 358          static void USB_SendNull(unsigned char PID_DATA) reentrant {
+ 359   1        unsigned char timeStart;
+ 360   1        usb.state = USB_STATE_IN;
+ 361   1        usb_tx_buffer[0] = 0x80;
+ 362   1        usb_tx_buffer[1] = PID_DATA;
+ 363   1        usb_tx_buffer[2] = 0;
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 7   
 
- 364   1        usb_tx_buffer[1] = PID_DATA;
- 365   1        usb_tx_buffer[2] = 0;
- 366   1        usb_tx_buffer[3] = 0;
- 367   1        usb_tx_count = 4;
- 368   1        
- 369   1        timeStart = USB_TimerTick;
- 370   1        while(usb_tx_count){
- 371   2          if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep))){
- 372   3            usb_tx_count = 0;
- 373   3            return;
- 374   3          }
- 375   2        }
- 376   1      }
- 377          
- 378          static void usb_send_stall() {
- 379   1        usb_tx_buffer[0] = 0x80;
- 380   1        usb_tx_buffer[1] = USB_PID_STALL;
- 381   1        usb_tx_count = 2;
- 382   1      }
- 383          
- 384          void USB_Process() {
- 385   1        if(usb.event == USB_EVENT_RECEIVE_SETUP_DATA){
- 386   2          usb.event = USB_EVENT_NO;
- 387   2          if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
- 388   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR){
- 389   4              switch(rx_buffer[5]){
- 390   5              case USBDESCR_DEVICE:
- 391   5                USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor));
- 392   5                break;
- 393   5              case USBDESCR_CONFIG:
- 394   5                if(rx_buffer[8] < ARRAY_LENGHT(usb_configuration_descriptor))
- 395   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8]);
- 396   5                else
- 397   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descripto
+ 364   1        usb_tx_buffer[3] = 0;
+ 365   1        usb_tx_count = 4;
+ 366   1        
+ 367   1        timeStart = USB_TimerTick;
+ 368   1        while(usb_tx_count){
+ 369   2          if((usb.state != USB_STATE_IN) || ((unsigned char)(USB_TimerTick - timeStart) > (100 / TimerTickStep))){
+ 370   3            usb_tx_count = 0;
+ 371   3            return;
+ 372   3          }
+ 373   2        }
+ 374   1      }
+ 375          
+ 376          static void usb_send_stall() {
+ 377   1        usb_tx_buffer[0] = 0x80;
+ 378   1        usb_tx_buffer[1] = USB_PID_STALL;
+ 379   1        usb_tx_count = 2;
+ 380   1      }
+ 381          
+ 382          void USB_Process() {
+ 383   1        if(usb.event == USB_EVENT_RECEIVE_SETUP_DATA){
+ 384   2          usb.event = USB_EVENT_NO;
+ 385   2          if(rx_buffer[2] == USBRQ_STD_FROM_DEVICE){
+ 386   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR){
+ 387   4              switch(rx_buffer[5]){
+ 388   5              case USBDESCR_DEVICE:
+ 389   5                USB_SendData((unsigned char *)usb_device_descriptor, ARRAY_LENGHT(usb_device_descriptor));
+ 390   5                break;
+ 391   5              case USBDESCR_CONFIG:
+ 392   5                if(rx_buffer[8] < ARRAY_LENGHT(usb_configuration_descriptor))
+ 393   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, rx_buffer[8]);
+ 394   5                else
+ 395   5                  USB_SendData((unsigned char *)usb_configuration_descriptor, ARRAY_LENGHT(usb_configuration_descripto
              -r));
- 398   5                break;
- 399   5              case USBDESCR_STRING:
- 400   5                if(rx_buffer[4] == 0){
- 401   6                  USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_lan
+ 396   5                break;
+ 397   5              case USBDESCR_STRING:
+ 398   5                if(rx_buffer[4] == 0){
+ 399   6                  USB_SendData((unsigned char *)usb_string_descriptor_language, ARRAY_LENGHT(usb_string_descriptor_lan
              -guage));
- 402   6                  USB_SendNull(data_sync);
- 403   6                }
- 404   5                else if(rx_buffer[4] == 1){
- 405   6                  USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendo
+ 400   6                  USB_SendNull(data_sync);
+ 401   6                }
+ 402   5                else if(rx_buffer[4] == 1){
+ 403   6                  USB_SendData((unsigned char *)usb_string_descriptor_vendor, ARRAY_LENGHT(usb_string_descriptor_vendo
              -r));
- 406   6                  USB_SendNull(data_sync);
- 407   6                }
- 408   5                else if(rx_buffer[4] == 2){
- 409   6                  USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_devic
+ 404   6                  USB_SendNull(data_sync);
+ 405   6                }
+ 406   5                else if(rx_buffer[4] == 2){
+ 407   6                  USB_SendData((unsigned char *)usb_string_descriptor_device, ARRAY_LENGHT(usb_string_descriptor_devic
              -e));
- 410   6                  USB_SendNull(data_sync);
- 411   6                }
- 412   5                else if(rx_buffer[4] == 3){
- 413   6                  USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_seria
+ 408   6                  USB_SendNull(data_sync);
+ 409   6                }
+ 410   5                else if(rx_buffer[4] == 3){
+ 411   6                  USB_SendData((unsigned char *)usb_string_descriptor_serial, ARRAY_LENGHT(usb_string_descriptor_seria
              -l));
- 414   6                  USB_SendNull(data_sync);
- 415   6                }
- 416   5                else
- 417   5                  USB_SendNull(USB_PID_DATA1);
- 418   5                break;
- 419   5              default:
- 420   5                  break;
-C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 10:29:44 PAGE 8   
+ 412   6                  USB_SendNull(data_sync);
+ 413   6                }
+ 414   5                else
+ 415   5                  USB_SendNull(USB_PID_DATA1);
+ 416   5                break;
+ 417   5              default:
+ 418   5                  break;
+ 419   5              }
+ 420   4            }
+C51 COMPILER V9.60.0.0   USB                                                               06/06/2020 14:24:47 PAGE 8   
 
- 421   5              }
- 422   4            }
- 423   3            else if(rx_buffer[3] == USBRQ_GET_STATUS){
- 424   4              usb_send_stall();
- 425   4            }
- 426   3          }
- 427   2          else if(rx_buffer[2] == USBRQ_STD_TO_DEVICE){
- 428   3            switch(rx_buffer[3]){
- 429   4              case USBRQ_SET_ADDRESS:
- 430   4                if(usb.device_address != 0){
- 431   5                  //
- 432   5                }
- 433   4                USB_SendNull(USB_PID_DATA1);
- 434   4                usb.device_address = rx_buffer[4];
- 435   4                break;
- 436   4              case (USBRQ_SET_CONFIGURATION):
- 437   4                USB_SendNull(USB_PID_DATA1);
- 438   4                break;
- 439   4            }
- 440   3          }
- 441   2          else if (rx_buffer[2] == USBRQ_STD_FROM_INTERFACE){
- 442   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
- 443   3              USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor));
- 444   3          }
- 445   2          else if(rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
- 446   3            if(rx_buffer[3] == 0x0A)
- 447   3              usb_send_stall();
- 448   3          }
- 449   2          else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE)
- 450   2            USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
+ 421   3            else if(rx_buffer[3] == USBRQ_GET_STATUS){
+ 422   4              usb_send_stall();
+ 423   4            }
+ 424   3          }
+ 425   2          else if(rx_buffer[2] == USBRQ_STD_TO_DEVICE){
+ 426   3            switch(rx_buffer[3]){
+ 427   4              case USBRQ_SET_ADDRESS:
+ 428   4                if(usb.device_address != 0){
+ 429   5                  //
+ 430   5                }
+ 431   4                USB_SendNull(USB_PID_DATA1);
+ 432   4                usb.device_address = rx_buffer[4];
+ 433   4                break;
+ 434   4              case (USBRQ_SET_CONFIGURATION):
+ 435   4                USB_SendNull(USB_PID_DATA1);
+ 436   4                break;
+ 437   4            }
+ 438   3          }
+ 439   2          else if (rx_buffer[2] == USBRQ_STD_FROM_INTERFACE){
+ 440   3            if(rx_buffer[3] == USBRQ_GET_DESCRIPTOR)
+ 441   3              USB_SendData((unsigned char *)usb_report_descriptor, ARRAY_LENGHT(usb_report_descriptor));
+ 442   3          }
+ 443   2          else if(rx_buffer[2] == USBRQ_CLASS_TO_INTERFACE){
+ 444   3            if(rx_buffer[3] == 0x0A)
+ 445   3              usb_send_stall();
+ 446   3          }
+ 447   2          else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE){
+ 448   3      //      static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+ 449   3      //      USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
+ 450   3          }
  451   2        }
  452   1        if(usb.received){
  453   2          extern void USB_Received(unsigned char endpoint, unsigned char *buffer, unsigned char length) reentrant;
@@ -497,8 +497,8 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   2161    ----
-   CONSTANT SIZE    =    709    ----
+   CODE SIZE        =   2149    ----
+   CONSTANT SIZE    =    701    ----
    XDATA SIZE       =    264       1
    PDATA SIZE       =   ----    ----
    DATA SIZE        =     26    ----

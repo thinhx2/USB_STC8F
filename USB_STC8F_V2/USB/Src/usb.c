@@ -181,8 +181,6 @@ void usb_received() {
 	usb_received_reentrant();
 }
 
-static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
 const unsigned int code table[] = {
 	0x0000, 0xC0C1, 0xC181, 0x0140, 0xC301, 0x03C0, 0x0280, 0xC241,
 	0xC601, 0x06C0, 0x0780, 0xC741, 0x0500, 0xC5C1, 0xC481, 0x0440,
@@ -446,8 +444,10 @@ void USB_Process() {
 			if(rx_buffer[3] == 0x0A)
 				usb_send_stall();
 		}
-		else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE)
-			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
+		else if(rx_buffer[2] == USBRQ_CLASS_FROM_INTERFACE){
+//			static const unsigned char code usb_report_null[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+//			USB_SendData((unsigned char *)usb_report_null, ARRAY_LENGHT(usb_report_null));
+		}
 	}
 	if(usb.received){
 		extern void USB_Received(unsigned char endpoint, unsigned char *buffer, unsigned char length) reentrant;
